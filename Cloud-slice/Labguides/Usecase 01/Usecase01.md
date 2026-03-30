@@ -152,13 +152,13 @@ becomes the structured data foundation that the Data Agent will query.
     df_tables = pd.read_csv(f"{base}/adventureworks.csv", names=["table"])
 
     for table in (pbar := tqdm(df_tables['table'].values)):
-    pbar.set_description(f"Uploading {table} to lakehouse")
+        pbar.set_description(f"Uploading {table} to lakehouse")
 
-    # download
-    df = pd.read_parquet(f"{base}/{table}.parquet")
+        # download
+        df = pd.read_parquet(f"{base}/{table}.parquet")
 
-    # save as lakehouse table
-    spark.createDataFrame(df).write.mode('overwrite').saveAsTable(table)
+        # save as lakehouse table
+        spark.createDataFrame(df).write.mode('overwrite').saveAsTable(table)
     ```
 
     ![](./media/image21.png)
@@ -171,6 +171,8 @@ becomes the structured data foundation that the Data Agent will query.
 
     ![](./media/image25.png)
 
+    > **Note:** Wait until the progress reaches 100%.
+
 ## Task 3: Create Data agent
 
 In this task, you will create a Fabric Data Agent and connect it to the
@@ -178,7 +180,7 @@ Lakehouse. You will select the required Dimension and Fact tables to
 enable the agent to answer a wide range of sales‑related analytics
 questions.
 
-1. Now, click on **Fabric Data agent-XXXXXX** on the left-sided navigation pane.
+1. Now, click on **Fabric Data agent- <inject key="DeploymentID" enableCopy="false"></inject>** on the left-sided navigation pane.
 
     ![](./media/image26.png)
 
@@ -242,11 +244,13 @@ questions and their corresponding SQL queries. These examples help the
 agent understand domain‑specific context and generate more accurate SQL
 responses for real‑world queries.
 
-1. When you first ask the questions with the listed tables
-  select **factinternetsales**, the data agent answers them fairly
-  well.
+1. When you first ask the questions with the listed tables select **factinternetsales**, the data agent answers them fairly well.
 
-2. For instance, for the question  **What is the most sold product? **
+2. For instance, for the question :
+
+    ```
+    What is the most sold product?
+    ```
 
     ![](./media/image35.png)
 
@@ -262,7 +266,9 @@ generated](./media/image38.png)
 
 4. Select **FactResellerSales** and enter the following text and click on the **Submit icon** as shown in the below image.
 
-    **What is our most sold product?**
+    ```
+    What is our most sold product?
+    ```
 
     ![A screenshot of a computer Description automatically
 generated](./media/image39.png)
@@ -275,8 +281,10 @@ instructions.
 
 5. Select the **dimcustomer** , enter the following text and click on
   the **Submit icon**
-
-    **how many active customers did we have June 1st, 2013?**
+    
+    ```
+    how many active customers did we have June 1st, 2013?
+    ```
 
     ![A screenshot of a computer Description automatically
 generated](./media/image41.png)
@@ -295,7 +303,9 @@ generated](./media/image44.png)
 7. Select the **dimdate**, **FactInternetSales** , enter the following
   text and click on the **Submit icon:**
 
-    **what are the monthly sales trends for the last year?**
+    ```
+    what are the monthly sales trends for the last year?
+    ```
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image45.png)
@@ -305,8 +315,10 @@ incorrect.](./media/image45.png)
 
 8. Select the **dimproduct**,**FactInternetSales** , enter the
   following text and click on the **Submit icon:**
-
-    **which product category had the highest average sales price?**
+   
+    ```
+    which product category had the highest average sales price?
+    ```
 
     ![A screenshot of a computer Description automatically
  generated](./media/image47.png)
@@ -319,8 +331,7 @@ generated](./media/image48.png)
     help, but users might frequently ask this question. You need to make
     sure that the AI handles the question correctly.
 
-7. The relevant query is moderately complex, so provide an example by
-  selecting the **Example queries** button from the **Setup** pane.
+7. The relevant query is moderately complex, so provide an example by selecting the **Example queries** button from the **Setup** pane.
 
     ![](./media/image49.png)
 
@@ -330,8 +341,10 @@ generated](./media/image48.png)
 
 9. Here, you should add Example queries for the lakehouse data source
   that you have created. Add the below question in the question field:
-
-    **What is the most sold product?**
+    
+    ```
+    What is the most sold product?
+    ```
 
     ![](./media/image51.png)
 
@@ -352,7 +365,9 @@ generated](./media/image48.png)
 
 12. To add a second question in the question field:
 
-    **What are the monthly sales trends for the last year?**
+    ```
+    What are the monthly sales trends for the last year?
+    ```
 
     ![](./media/image54.png)
 
@@ -389,7 +404,9 @@ generated](./media/image48.png)
 
 15. To add a third question in the question field:
 
+    ```
     Which product category has the highest average sales price? 
+    ```
 
     ![](./media/image57.png)
 
@@ -483,9 +500,9 @@ determine whether or not the AI skill has a published URL value.
 
     ![](./media/image70.png)
 
-11. Use the **+ Code** icon below the cell output to add a new code cell to the notebook, enter the following code in it and replace the **URL**. Click on **▷ Run** button and review the output
+11. Use the **+ Code** icon below the cell output to add a new code cell to the notebook. Enter the following code in the new cell and replace the **URL** as required. Then, click on the **▷ Run** button and review the output.
 
-    ```
+    ```python
     import requests
     import json
     import pprint
@@ -500,71 +517,91 @@ determine whether or not the AI skill has a published URL value.
     from openai._utils import is_given
     from synapse.ml.mlflow import get_mlflow_env_config
     from sempy.fabric._token_provider import SynapseTokenProvider
-    
-    base_url = "https://<generic published base URL value "
+
+    base_url = "https://api.fabric.microsoft.com/v1/workspaces/989ec440-4aca-4a01-b19b-ba778325c043/dataagents/fa0d717a-6457-405c-8856-25bd4aabdd6a/aiassistant/openai"
     question = "What datasources do you have access to?"
 
     configs = get_mlflow_env_config()
 
     # Create OpenAI Client
     class FabricOpenAI(OpenAI):
-    def __init__(
-        self,
-        api_version: str ="2024-05-01-preview",
-        **kwargs: t.Any,
-    ) - None:
-        self.api_version = api_version
-        default_query = kwargs.pop("default_query", {})
-        default_query["api-version"] = self.api_version
-        super().__init__(
-        api_key="",
-        base_url=base_url,
-        default_query=default_query,
-        **kwargs,
-        )
-    
-    def _prepare_options(self, options: FinalRequestOptions) - None:
-        headers: dict[str, str | Omit] = (
-        {**options.headers} if is_given(options.headers) else {}
-        )
-        options.headers = headers
-        headers["Authorization"] = f"Bearer {configs.driver_aad_token}"
-        if "Accept" not in headers:
-        headers["Accept"] = "application/json"
-        if "ActivityId" not in headers:
-        correlation_id = str(uuid.uuid4())
-        headers["ActivityId"] = correlation_id
+        def __init__(
+            self,
+            api_version: str = "2024-05-01-preview",
+            **kwargs: t.Any,
+        ) -> None:
+            self.api_version = api_version
+            default_query = kwargs.pop("default_query", {})
+            default_query["api-version"] = self.api_version
 
-        return super()._prepare_options(options)
+            super().__init__(
+                api_key="",
+                base_url=base_url,
+                default_query=default_query,
+                **kwargs,
+            )
+
+        def _prepare_options(self, options: FinalRequestOptions) -> None:
+            headers: dict[str, str | Omit] = (
+                {**options.headers} if is_given(options.headers) else {}
+            )
+            options.headers = headers
+
+            headers["Authorization"] = f"Bearer {configs.driver_aad_token}"
+
+            if "Accept" not in headers:
+                headers["Accept"] = "application/json"
+
+            if "ActivityId" not in headers:
+                correlation_id = str(uuid.uuid4())
+                headers["ActivityId"] = correlation_id
+
+            return super()._prepare_options(options)
+
 
     # Pretty printing helper
     def pretty_print(messages):
-    print("---Conversation---")
-    for m in messages:
-        print(f"{m.role}: {m.content[0].text.value}")
-    print()
+        print("---Conversation---")
+        for m in messages:
+            print(f"{m.role}: {m.content[0].text.value}")
+        print()
+
 
     fabric_client = FabricOpenAI()
+
     # Create assistant
     assistant = fabric_client.beta.assistants.create(model="not used")
+
     # Create thread
     thread = fabric_client.beta.threads.create()
+
     # Create message on thread
-    message = fabric_client.beta.threads.messages.create(thread_id=thread.id, role="user", content=question)
+    message = fabric_client.beta.threads.messages.create(
+        thread_id=thread.id,
+        role="user",
+        content=question,
+    )
+
     # Create run
-    run = fabric_client.beta.threads.runs.create(thread_id=thread.id, assistant_id=assistant.id)
+    run = fabric_client.beta.threads.runs.create(
+        thread_id=thread.id,
+        assistant_id=assistant.id,
+    )
 
     # Wait for run to complete
-    while run.status == "queued" or run.status == "in_progress":
-    run = fabric_client.beta.threads.runs.retrieve(
-        thread_id=thread.id,
-        run_id=run.id,
-    )
-    print(run.status)
-    time.sleep(2)
+    while run.status in ["queued", "in_progress"]:
+        run = fabric_client.beta.threads.runs.retrieve(
+            thread_id=thread.id,
+            run_id=run.id,
+        )
+        print(run.status)
+        time.sleep(2)
 
     # Print messages
-    response = fabric_client.beta.threads.messages.list(thread_id=thread.id, order="asc")
+    response = fabric_client.beta.threads.messages.list(
+        thread_id=thread.id,
+        order="asc",
+    )
     pretty_print(response)
 
     # Delete thread
@@ -575,31 +612,6 @@ determine whether or not the AI skill has a published URL value.
 
     ![](./media/image72.png)
 
-## Task 6: Delete the resources
-
-1. Select your workspace, the **AI-Fabric-XXXX** from the left-hand
-navigation menu. It opens the workspace item view.
-
-    ![A screenshot of a computer Description automatically
-    generated](./media/image73.png)
-
-2. Select the **...** option under the workspace name and select **Workspace settings**.
-
-    ![A screenshot of a computer Description automatically
-    generated](./media/image74.png)
-
-3. Select **Other** and **Remove this workspace.**
-
-    ![A screenshot of a computer Description automatically
-    generated](./media/image75.png)
-
-4. Click on **Delete** in the warning that pops up.
-
-    ![A screenshot of a computer Description automatically
-    generated](./media/image76.png)
- 
-    ![A screenshot of a computer AI-generated content may be
-    incorrect.](./media/image77.png)
 
 ## Summary:
 
