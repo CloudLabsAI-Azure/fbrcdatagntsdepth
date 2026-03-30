@@ -1,6 +1,6 @@
-## Usecase 01- Build sales analytics with AdventureWorks dataset using Fabric data agent
+# Usecase 01- Build sales analytics with AdventureWorks dataset using Fabric data agent
 
-**Introduction**
+## Introduction
 
 Contoso Analytics, a retail insights team, is transitioning its
 reporting workflows to **Microsoft Fabric** to improve data
@@ -11,45 +11,34 @@ insights without writing SQL or navigating dashboards.
 To achieve this, the team decides to build an **intelligent analytics
 assistant** powered by a **Fabric Data Agent**. The first step in this
 process is to prepare the underlying data in a **Fabric Lakehouse**. As
-outlined in the Fabric data agent tutorial, they begin by **creating and
-populating a Lakehouse**, which will hold curated retail datasets such
-as sales transactions, product inventory, and store profiles. This
+outlined in the Fabric data agent tutorial, they begin by **creating and populating a Lakehouse**, which will hold curated retail datasets such as sales transactions, product inventory, and store profiles. This
 Lakehouse serves as the governed, centralized data source for downstream
 tasks.
 
 Once the Lakehouse is set up, the next step is to make it accessible to
 conversational systems and automation tools. The team accomplishes this
-by **creating a Fabric Data Agent** and **adding the Lakehouse as its
-connected data source**, enabling secure, governed access to the data.
+by **creating a Fabric Data Agent** and **adding the Lakehouse as its connected data source**, enabling secure, governed access to the data.
 This configuration allows the Data Agent to understand and query the
 Lakehouse content, forming the foundation for building natural‑language
 experiences across the organization.
 
 With the Lakehouse connected through the Fabric Data Agent, Contoso can
 now integrate the agent into analytics applications, Copilot
-experiences, and internal tools—empowering business users to ask
+experiences, and internal tools empowering business users to ask
 questions like *“Show me today’s sales for the south region”* or
 *“Identify the lowest‑stock products across all stores”* and receive
 data‑driven answers instantly.
 
-**Objectives**
+## Lab Objectives
 
-- Create a **Microsoft Fabric workspace** and configure storage and
- permissions.
+In this lab, you will complete the following tasks:
 
-- Build a **Fabric Lakehouse** and load AdventureWorks datasets
- programmatically using notebooks.
+- Task 1: Create a Fabric workspace
+- Task 2: Create a lakehouse with AdventureWorksLH
+- Task 3: Create and configure a Fabric Data Agent connected to Lakehouse tables.
+- Task 4: Improve the agent’s responses using instructions and example queries.
+- Task 5: Publish the agent and test it programmatically via API calls inside a Fabric notebook.
 
-- Create and configure a **Fabric Data Agent** connected to Lakehouse
- tables.
-
-- Improve the agent’s responses using **instructions and example
- queries**.
-
-- Publish the agent and test it **programmatically via API calls**
- inside a Fabric notebook.
-
-- Clean up and delete the workspace after completing the lab.
 
 ## Task 1: Create a Fabric workspace
 
@@ -60,11 +49,9 @@ throughout the use case.
 
 1. Open your web browser and go to the address bar. Type or paste the provided URL, then press **Enter** to proceed.
 
-  ```
-  https://app.fabric.microsoft.com  
-  ```
-
-  ![](./media/image6.png)
+    ```
+    https://app.fabric.microsoft.com  
+    ```
 
 2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
 
@@ -84,34 +71,32 @@ be incorrect.](./media/image8.png)
 
 5. You’ll be directed to Power BI Home page.
 
-  ![](./media/image9.png)
+    ![](./media/image9.png)
 
 6. Fabric home page, select **+New workspace** tile.
 
-  ![](./media/image10.png)
+    ![](./media/image10.png)
 
 7. In the **Create a workspace** pane that appears on the right side, enter the following details, and click on the **Apply** button.
 
-  | Property | Value |
-  |---------|-------|
-  | Name | **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject>**|
-  | Advanced | Under **License mode**, select **Fabric** |
-  | Default storage format | Small dataset storage format |
-  | Template apps | Check **Develop template apps** |
+    | Property | Value |
+    |---------|-------|
+    | Name | **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject>**|
+    | Advanced | Under **License mode**, select **Fabric** |
+    | Default storage format | Small dataset storage format |
+    | Template apps | Check **Develop template apps** |
 
-  ![](./media/image11.png)
+    ![](./media/image11.png)
 
-  ![](./media/image13.png)
+    ![](./media/image13.png)
 
 8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
 
-  ![](./media/image14.png)
+    ![](./media/image14.png)
 
 ## Task 2: Create a lakehouse with AdventureWorksLH
 
-This task guides you through creating a new Lakehouse and populating it
-with AdventureWorks tables using a Fabric notebook. The Lakehouse
-becomes the structured data foundation that the Data Agent will query.
+In this task, you will create a new Lakehouse and populate it with AdventureWorks tables using a Fabric notebook, establishing a structured data foundation that the Data Agent can query.
 
 1. Create a new lakehouse by clicking on the **+New item** button in the navigation bar.
 
@@ -135,11 +120,11 @@ becomes the structured data foundation that the Data Agent will query.
 
 4. You will see a notification stating **Successfully created SQL endpoint**.
 
-![](./media/image19.png)
+    ![](./media/image19.png)
 
 5. Click on **Open notebook**, then from the dropdown menu select **New notebook** in the lakehouse where you want to create your Fabric data agent.
 
- ![](./media/image20.png)
+    ![](./media/image20.png)
 
 6. Update the code in the **cell** with the following code and click on **▷ Run cell** that appears to the left of the cell.
 
@@ -210,39 +195,36 @@ incorrect.](./media/image29.png)
 
     ![](./media/image33.png)
 
-7. You must then select the tables for which you want the AI skill to
-  have available access.
+7. You must then select the tables for which you want the AI skill to have available access.
 
-This lab uses these tables:
+    This lab uses these tables:
 
-- DimCustomer
+    - DimCustomer
 
-- DimDate
+    - DimDate
 
-- DimGeography
+    - DimGeography
 
-- DimProduct
+    - DimProduct
 
-- DimProductCategory
+    - DimProductCategory
 
-- DimPromotion
+    - DimPromotion
 
-- DimReseller
+    - DimReseller
 
-- DimSalesTerritory
+    - DimSalesTerritory
 
-- FactInternetSales
+    - FactInternetSales
 
-- FactResellerSales
+    - FactResellerSales
 
-    ![](./media/image34.png)
+        ![](./media/image34.png)
 
 ## Task 4: Provide instructions
 
-Here, you will enrich the Data Agent by adding natural language
-questions and their corresponding SQL queries. These examples help the
-agent understand domain‑specific context and generate more accurate SQL
-responses for real‑world queries.
+In this task, you will enrich the Data Agent by adding natural language questions along with their corresponding SQL queries. These examples help the agent understand domain-specific context and generate more accurate SQL responses for real-world queries. You will add relevant question–SQL pairs, validate their accuracy, test how the agent responds to similar queries, and refine the examples to improve the agent’s performance.
+
 
 1. When you first ask the questions with the listed tables select **factinternetsales**, the data agent answers them fairly well.
 
@@ -437,13 +419,7 @@ generated](./media/image48.png)
 
 ## Task 5: Use the Data agent programmatically
 
-Both instructions and examples were added to the Data agent. As testing
-proceeds, more examples and instructions can improve the AI skill even
-further. Work with your colleagues to see if you provided examples and
-instructions that cover the kinds of questions they want to ask.
-
-You can use the AI skill programmatically within a Fabric notebook. To
-determine whether or not the AI skill has a published URL value.
+In this task, you will validate and enhance the Data Agent by reviewing its instructions and examples, and by using the AI skill programmatically within a Fabric notebook. You will check whether the AI skill is properly configured and confirm that a published URL is available. You will then use the AI skill within a Fabric notebook to test responses using sample queries, and refine the instructions and examples based on the results to improve its overall effectiveness.
 
 1. In the Data agent Fabric page, in the **Home** ribbon select the **Settings**.
 
