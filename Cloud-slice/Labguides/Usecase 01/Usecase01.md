@@ -55,16 +55,16 @@ throughout the use case.
 
 2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
 
-  - **Email/Username** : <inject key="AzureAdUserPassword"></inject> 
+    - **Email/Username** : <inject key="AzureAdUserPassword"></inject> 
 
-    ![A screenshot of a computer AI-generated content may be
+        ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image7.png)
 
 3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
 
    - **Password**    : <inject key="AzureAdUserPassword"></inject>
 
-    ![A login screen with a red box and blue text AI-generated content may
+        ![A login screen with a red box and blue text AI-generated content may
 be incorrect.](./media/image8.png)
 
 4. In **Stay signed in?** window, click on the **Yes** button.
@@ -173,27 +173,22 @@ questions.
 
     ![](./media/image27.png)
 
-3. In the **Filter by item type** search box, enter ** data agent ** and select the **Data agent.**
+3. In the **Filter by item type** search box, enter **data agent (1)** and select the **Data agent (2)**
 
-    ![](./media/image28.png)
+    ![](./media/data-agent.png)
 
 4. Enter **AI-agent** as the Data agent name and select **Create**.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image29.png)
 
-    ![](./media/image30.png)
+5. In AI-agent page, select **Add data (1)** and from the dropdown **choose data source(2)**.
 
-5. In AI-agent page, select **Add a data source**.
+    ![](./media/add-data-source.png)
 
-    ![](./media/image31.png)
+6. In the **OneLake catalog** tab, select the **AdventureWorksLH (1)** and select **Add (2)**.
 
-6. In the **OneLake catalog** tab, select the **AI-Fabric_lakehouse
-  lakehouse** and select **Add**.
-
-    ![](./media/image32.png)
-
-    ![](./media/image33.png)
+    ![](./media/adventureworks-lh.png)
 
 7. You must then select the tables for which you want the AI skill to have available access.
 
