@@ -68,22 +68,19 @@ throughout the use case.
 
 2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
 
-  | Field       | Value |
-  |--------------------|-------|
-  | **Email/Username** | <inject key="AzureAdUserEmail" </inject |
-  | **Password**    | <inject key="AzureAdUserPassword" </inject |
+  - **Email/Username** : <inject key="AzureAdUserPassword"></inject> 
 
-  ![A screenshot of a computer AI-generated content may be
+    ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image7.png)
 
 3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
 
-  ![A login screen with a red box and blue text AI-generated content may
+   - **Password**    : <inject key="AzureAdUserPassword"></inject>
+
+    ![A login screen with a red box and blue text AI-generated content may
 be incorrect.](./media/image8.png)
 
 4. In **Stay signed in?** window, click on the **Yes** button.
-
-&nbsp;
 
 5. You’ll be directed to Power BI Home page.
 
