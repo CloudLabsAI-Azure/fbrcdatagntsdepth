@@ -606,6 +606,7 @@ determine whether or not the AI skill has a published URL value.
 
     # Delete thread
     fabric_client.beta.threads.delete(thread_id=thread.id)
+    
     ```
 
     ![](./media/image71.png)
