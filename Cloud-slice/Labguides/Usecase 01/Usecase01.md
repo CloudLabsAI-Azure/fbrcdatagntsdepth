@@ -51,101 +51,70 @@ data‑driven answers instantly.
 
 - Clean up and delete the workspace after completing the lab.
 
-## **Task 0: Sync Host environment time**
-
-1.  In your VM, navigate and click in the **Search bar**, type
-    **Settings** and then click on **Settings** under **Best match**.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image1.png)
-
-2.  On Settings window, navigate and click on **Time & language**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image2.png)
-
-3.  On **Time & language** page, navigate and click on **Date & time**.
-
-![A screenshot of a computer Description automatically
-generated](./media/image3.png)
-
-4.  Scroll down and navigate to **Additional settings** section, then
-    click on **Syn now** button. It will take 3-5 minutes to syn.
-
-![A screenshot of a computer Description automatically
-generated](./media/image4.png)
-
-5.  Close the **Settings** window.
-
-![A screenshot of a computer Description automatically
-generated](./media/image5.png)
-
-## Task 1: **Create a Fabric workspace**
+## Task 1: Create a Fabric workspace
 
 In this task, you will set up the foundational environment by creating a
 Fabric workspace that will host the Lakehouse, notebooks, and the Data
 Agent. This workspace acts as the central container for all assets used
 throughout the use case.
 
-1.  Open your browser, navigate to the address bar, and type or paste
-    the following URL:+++https://app.fabric.microsoft.com/+++ then press
-    the **Enter** button.
+1. Open your web browser and go to the address bar. Type or paste the provided URL, then press **Enter** to proceed.
 
-![](./media/image6.png)
+    ```
+    https://app.fabric.microsoft.com   
+    ```
 
-2.  In the **Microsoft Fabric** window, enter your credentials, and
-    click on the **Submit** button.
+    ![](./media/image6.png)
 
-    |  |   |
-    |---|----|
-    |Username	|+++@lab.CloudPortalCredential(User1).Username+++|
-    |TAP	|+++@lab.CloudPortalCredential(User1).AccessToken+++|
+2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
 
-![A screenshot of a computer AI-generated content may be
+    | Field              | Value |
+    |--------------------|-------|
+    | **Email/Username** | <inject key="AzureAdUserEmail" </inject  |
+    | **Password**       | <inject key="AzureAdUserPassword" </inject  |
+
+    ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image7.png)
 
-3.  Then, In the **Microsoft** window enter the password and click on
-    the **Sign in** button.
+3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
 
-> ![A login screen with a red box and blue text AI-generated content may
-> be incorrect.](./media/image8.png)
+    ![A login screen with a red box and blue text AI-generated content may
+be incorrect.](./media/image8.png)
 
-4.  In **Stay signed in?** window, click on the **Yes** button.
+4. In **Stay signed in?** window, click on the **Yes** button.
 
 &nbsp;
 
-5.  You’ll be directed to Power BI Home page.
+5. You’ll be directed to Power BI Home page.
 
-> ![](./media/image9.png)
+    ![](./media/image9.png)
 
-6.  Fabric home page, select **+New workspace** tile.
+6. Fabric home page, select **+New workspace** tile.
 
-> ![](./media/image10.png)
+    ![](./media/image10.png)
 
-7.  In the **Create a workspace** pane that appears on the right side,
-    enter the following details, and click on the **Apply** button.
+7. In the **Create a workspace** pane that appears on the right side, enter the following details, and click on the **Apply** button.
 
-| Property | Value |
-|---------|-------|
-| Name | **+++Fabric Data agent-@lab.LabInstance.Id+++** **(must be a unique Id)** |
-| Advanced | Under **License mode**, select **Fabric** |
-| Default storage format | Small dataset storage format |
-| Template apps | Check **Develop template apps** |
+    | Property | Value |
+    |---------|-------|
+    | Name | ** Fabric Data agent-@lab.LabInstance.Id ** **(must be a unique Id)** |
+    | Advanced | Under **License mode**, select **Fabric** |
+    | Default storage format | Small dataset storage format |
+    | Template apps | Check **Develop template apps** |
 
-![](./media/image11.png)
+    ![](./media/image11.png)
 
-Note: To find your lab instant ID, select 'Help' and copy the instant
+> Note: To find your lab instant ID, select 'Help' and copy the instant
 ID.
 
-![A screenshot of a computer Description automatically
+    ![A screenshot of a computer Description automatically
 generated](./media/image12.png)
 
-> ![](./media/image13.png)
+![](./media/image13.png)
 
-8.  Wait for the deployment to complete. It takes 1-2 minutes to
-    complete.
+8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
 
-> ![](./media/image14.png)
+  ![](./media/image14.png)
 
 ## Task 2: Create a lakehouse with AdventureWorksLH
 
@@ -163,7 +132,7 @@ becomes the structured data foundation that the Data Agent will query.
 ![](./media/image16.png)
 
 3.  In the **New lakehouse** dialog box,
-    enter +++**AdventureWorksLH+++** in the **Name** field, click on
+    enter  **AdventureWorksLH ** in the **Name** field, click on
     the **Create** button and open the new lakehouse.
 
 **Note**: Ensure to remove space before **AdventureWorksLH**
@@ -180,7 +149,7 @@ becomes the structured data foundation that the Data Agent will query.
 5.  Create a new notebook in the workspace where you want to create your
     Fabric data agent.
 
-> ![](./media/image20.png)
+  ![](./media/image20.png)
 
 6.  Update the code in the **cell** with the following code and click
     on **▷ Run cell** that appears to the left of the cell.
@@ -227,21 +196,21 @@ questions.
 
 ![](./media/image27.png)
 
-3.  In the **Filter by item type** search box, enter **+++data agent+++** and select the **Data agent.**
+3.  In the **Filter by item type** search box, enter ** data agent ** and select the **Data agent.**
 
 ![](./media/image28.png)
 
-4.  Enter **+++AI-agent+++** as the Data agent name and
+4.  Enter ** AI-agent ** as the Data agent name and
     select **Create**.
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image29.png)
 
-> ![](./media/image30.png)
+  ![](./media/image30.png)
 
 5.  In AI-agent page, select **Add a data source**.
 
-> ![](./media/image31.png)
+  ![](./media/image31.png)
 
 6.  In the **OneLake catalog** tab, select the **AI-Fabric_lakehouse
     lakehouse** and select **Add**.
@@ -288,11 +257,11 @@ responses for real‑world queries.
     select **factinternetsales**, the data agent answers them fairly
     well.
 
-2.  For instance, for the question +++**What is the most sold product?+++**
+2.  For instance, for the question  **What is the most sold product? **
 
 ![](./media/image35.png)
 
-> ![](./media/image36.png)
+  ![](./media/image36.png)
 
 3.  Copy the question and SQL queries and paste them in a notepad and
     then Save the notepad to use the information in the upcoming tasks.
@@ -306,7 +275,7 @@ generated](./media/image38.png)
 4.  Select **FactResellerSales** and enter the following text and click
     on the **Submit icon** as shown in the below image.
 
-**+++What is our most sold product?+++**
+** What is our most sold product? **
 
 ![A screenshot of a computer Description automatically
 generated](./media/image39.png)
@@ -320,7 +289,7 @@ instructions.
 5.  Select the **dimcustomer** , enter the following text and click on
     the **Submit icon**
 
-**+++how many active customers did we have June 1st, 2013?+++**
+** how many active customers did we have June 1st, 2013? **
 
 ![A screenshot of a computer Description automatically
 generated](./media/image41.png)
@@ -332,8 +301,8 @@ generated](./media/image42.png)
     and then Save the notepad to use the information in the upcoming
     tasks.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image43.png)
+  ![A screenshot of a computer Description automatically
+  generated](./media/image43.png)
 
 ![A screenshot of a computer Description automatically
 generated](./media/image44.png)
@@ -341,21 +310,21 @@ generated](./media/image44.png)
 7.  Select the **dimdate**, **FactInternetSales** , enter the following
     text and click on the **Submit icon:**
 
-**+++what are the monthly sales trends for the last year?+++**
+** what are the monthly sales trends for the last year? **
 
 ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image45.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image46.png)
+  ![A screenshot of a computer Description automatically
+  generated](./media/image46.png)
 
 8.  Select the **dimproduct,** **FactInternetSales** , enter the
     following text and click on the **Submit icon:**
 
-**+++which product category had the highest average sales price?+++**
+** which product category had the highest average sales price? **
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image47.png)
+  ![A screenshot of a computer Description automatically
+  generated](./media/image47.png)
 
 ![A screenshot of a computer Description automatically
 generated](./media/image48.png)
@@ -368,7 +337,7 @@ sure that the AI handles the question correctly.
 7.  The relevant query is moderately complex, so provide an example by
     selecting the **Example queries** button from the **Setup** pane.
 
-> ![](./media/image49.png)
+  ![](./media/image49.png)
 
 8.  In the Example queries tab, select the **Add example.**
 
@@ -377,9 +346,9 @@ sure that the AI handles the question correctly.
 9.  Here, you should add Example queries for the lakehouse data source
     that you have created. Add the below question in the question field:
 
-**+++What is the most sold product?+++**
+** What is the most sold product? **
 
-> ![](./media/image51.png)
+  ![](./media/image51.png)
 
 10. Add the query1 that you have saved in the notepad:
 
@@ -389,15 +358,15 @@ FROM [dbo].[factinternetsales]
 GROUP BY ProductKey
 ORDER BY TotalQuantitySold DESC
 ```
-> ![](./media/image52.png)
+  ![](./media/image52.png)
 
 11. To add a new query field, click on **+Add.**
 
-> ![](./media/image53.png)
+  ![](./media/image53.png)
 
 12. To add a second question in the question field:
 
-**+++What are the monthly sales trends for the last year?+++**
+** What are the monthly sales trends for the last year? **
 
 ![](./media/image54.png)
 
@@ -425,15 +394,15 @@ GROUP BY
 ORDER BY
     d.MonthNumberOfYear
 ```
-> ![](./media/image55.png)
+  ![](./media/image55.png)
 
 14. To add a new query field, click on **+Add.**
 
-> ![](./media/image56.png)
+  ![](./media/image56.png)
 
 15. To add a third question in the question field:
 
-+++Which product category has the highest average sales price?+++
+ Which product category has the highest average sales price? 
 
 ![](./media/image57.png)
 
@@ -452,12 +421,12 @@ GROUP BY
 ORDER BY
     AverageSalesPrice DESC
 ```
-> ![](./media/image58.png)
+  ![](./media/image58.png)
 
 17. Add all the queries and SQL queries that you have saved in Notepad,
     and then click on ‘**Export all’**
 
-> ![](./media/image59.png)
+  ![](./media/image59.png)
 
 ![](./media/image60.png)
 
@@ -474,24 +443,24 @@ determine whether or not the AI skill has a published URL value.
 1.  In the Data agent Fabric page, in the **Home** ribbon select
     the **Settings**.
 
-> ![](./media/image61.png)
+  ![](./media/image61.png)
 
 2.  Before you publish the AI skill, it doesn't have a published URL
     value, as shown in this screenshot.
 
 3.  Close the AI Skill setting.
 
-> ![](./media/image62.png)
+  ![](./media/image62.png)
 
 4.  In the **Home** ribbon, select the **Publish**.
 
-> ![](./media/image63.png)
->
-> ![](./media/image64.png)
+  ![](./media/image63.png)
+ 
+  ![](./media/image64.png)
 
 5.  Click on the **View publishing details**
 
-> ![](./media/image65.png)
+  ![](./media/image65.png)
 
 6.  The published URL for the AI agent appears, as shown in this
     screenshot.
@@ -499,29 +468,29 @@ determine whether or not the AI skill has a published URL value.
 7.  Copy the URL and paste that in a notepad and then Save the notepad
     to use the information in the upcoming steps.
 
-> ![](./media/image66.png)
+  ![](./media/image66.png)
 
 8.  Select **Notebook1** in the left navigation pane.
 
-> ![](./media/image67.png)
+  ![](./media/image67.png)
 
 9.  Use the **+ Code** icon below the cell output to add a new code cell
     to the notebook, enter the following code in it and replace
     the **URL**. Click on **▷ Run** button and review the output
 
-+++%pip install "openai==1.70.0"+++
+ %pip install "openai==1.70.0" 
 
-> ![](./media/image68.png)
->
-> ![](./media/image69.png)
+  ![](./media/image68.png)
+ 
+  ![](./media/image69.png)
 
 10. Use the **+ Code** icon below the cell output to add a new code cell
     to the notebook, enter the following code in it and replace
     the **URL**. Click on **▷ Run** button and review the output
 
-+++%pip install httpx==0.27.2+++
+ %pip install httpx==0.27.2 
 
-> ![](./media/image70.png)
+  ![](./media/image70.png)
 
 11. Use the **+ Code** icon below the cell output to add a new code cell
     to the notebook, enter the following code in it and replace
@@ -543,7 +512,7 @@ from openai._utils import is_given
 from synapse.ml.mlflow import get_mlflow_env_config
 from sempy.fabric._token_provider import SynapseTokenProvider
  
-base_url = "https://<generic published base URL value>"
+base_url = "https://<generic published base URL value "
 question = "What datasources do you have access to?"
 
 configs = get_mlflow_env_config()
@@ -554,7 +523,7 @@ class FabricOpenAI(OpenAI):
         self,
         api_version: str ="2024-05-01-preview",
         **kwargs: t.Any,
-    ) -> None:
+    ) -  None:
         self.api_version = api_version
         default_query = kwargs.pop("default_query", {})
         default_query["api-version"] = self.api_version
@@ -565,7 +534,7 @@ class FabricOpenAI(OpenAI):
             **kwargs,
         )
     
-    def _prepare_options(self, options: FinalRequestOptions) -> None:
+    def _prepare_options(self, options: FinalRequestOptions) -  None:
         headers: dict[str, str | Omit] = (
             {**options.headers} if is_given(options.headers) else {}
         )
@@ -612,7 +581,7 @@ pretty_print(response)
 # Delete thread
 fabric_client.beta.threads.delete(thread_id=thread.id)
 ```
-> ![](./media/image71.png)
+  ![](./media/image71.png)
 
 ![](./media/image72.png)
 
@@ -621,27 +590,27 @@ fabric_client.beta.threads.delete(thread_id=thread.id)
 1.  Select your workspace, the **AI-Fabric-XXXX** from the left-hand
     navigation menu. It opens the workspace item view.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image73.png)
+  ![A screenshot of a computer Description automatically
+  generated](./media/image73.png)
 
 2.  Select the **...** option under the workspace name and
     select **Workspace settings**.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image74.png)
+  ![A screenshot of a computer Description automatically
+  generated](./media/image74.png)
 
 3.  Select **Other** and **Remove this workspace.**
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image75.png)
+  ![A screenshot of a computer Description automatically
+  generated](./media/image75.png)
 
 4.  Click on **Delete** in the warning that pops up.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image76.png)
->
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image77.png)
+  ![A screenshot of a computer Description automatically
+  generated](./media/image76.png)
+ 
+  ![A screenshot of a computer AI-generated content may be
+  incorrect.](./media/image77.png)
 
 **Summary:**
 
