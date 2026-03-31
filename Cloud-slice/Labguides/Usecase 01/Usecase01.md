@@ -598,3 +598,6 @@ integration. This lab empowers you to make enterprise data more
 accessible, usable, and intelligent for business users through natural
 language and generative AI technologies.
 
+### You have successfully completed the lab. Click on Next >> to proceed with the next lab.
+
+![Start Your Azure Journey](../masterdoc/media/PageNo.png)
