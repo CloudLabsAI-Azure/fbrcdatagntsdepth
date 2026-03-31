@@ -577,11 +577,12 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
     # Delete thread
     fabric_client.beta.threads.delete(thread_id=thread.id)
+    
     ```
 
-    ![](./media/image71.png)
+![](./media/image71.png)
 
-    ![](./media/image72.png)
+![](./media/image72.png)
 
 
 ## Summary:
