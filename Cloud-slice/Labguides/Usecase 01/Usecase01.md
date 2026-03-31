@@ -62,7 +62,7 @@ incorrect.](./media/image7.png)
 
 3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
 
-   - **Password**    : <inject key="AzureAdUserPassword"></inject>
+   - **Password**  : <inject key="AzureAdUserPassword"></inject>
 
         ![A login screen with a red box and blue text AI-generated content may
 be incorrect.](./media/image8.png)
@@ -577,7 +577,6 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
     # Delete thread
     fabric_client.beta.threads.delete(thread_id=thread.id)
-    
     ```
 
     ![](./media/image71.png)
