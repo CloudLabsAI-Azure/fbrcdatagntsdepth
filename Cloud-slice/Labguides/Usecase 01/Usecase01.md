@@ -473,14 +473,13 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
 11. Use the **+ Code** icon below the cell output to add a new code cell to the notebook. Enter the following code in the new cell and replace the **URL** as required. Then, click on the **▷ Run** button and review the output.
 
-    ```python
+    ```
     import requests
     import json
     import pprint
     import typing as t
     import time
     import uuid
-
     from openai import OpenAI
     from openai._exceptions import APIStatusError
     from openai._models import FinalRequestOptions
@@ -488,12 +487,9 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
     from openai._utils import is_given
     from synapse.ml.mlflow import get_mlflow_env_config
     from sempy.fabric._token_provider import SynapseTokenProvider
-
     base_url = "https://api.fabric.microsoft.com/v1/workspaces/989ec440-4aca-4a01-b19b-ba778325c043/dataagents/fa0d717a-6457-405c-8856-25bd4aabdd6a/aiassistant/openai"
     question = "What datasources do you have access to?"
-
     configs = get_mlflow_env_config()
-
     # Create OpenAI Client
     class FabricOpenAI(OpenAI):
         def __init__(
@@ -504,61 +500,46 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
             self.api_version = api_version
             default_query = kwargs.pop("default_query", {})
             default_query["api-version"] = self.api_version
-
             super().__init__(
                 api_key="",
                 base_url=base_url,
                 default_query=default_query,
                 **kwargs,
             )
-
         def _prepare_options(self, options: FinalRequestOptions) -> None:
             headers: dict[str, str | Omit] = (
                 {**options.headers} if is_given(options.headers) else {}
             )
             options.headers = headers
-
             headers["Authorization"] = f"Bearer {configs.driver_aad_token}"
-
             if "Accept" not in headers:
                 headers["Accept"] = "application/json"
-
             if "ActivityId" not in headers:
                 correlation_id = str(uuid.uuid4())
                 headers["ActivityId"] = correlation_id
-
             return super()._prepare_options(options)
-
-
     # Pretty printing helper
     def pretty_print(messages):
         print("---Conversation---")
         for m in messages:
             print(f"{m.role}: {m.content[0].text.value}")
         print()
-
-
     fabric_client = FabricOpenAI()
-
     # Create assistant
     assistant = fabric_client.beta.assistants.create(model="not used")
-
     # Create thread
     thread = fabric_client.beta.threads.create()
-
     # Create message on thread
     message = fabric_client.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
         content=question,
     )
-
     # Create run
     run = fabric_client.beta.threads.runs.create(
         thread_id=thread.id,
         assistant_id=assistant.id,
     )
-
     # Wait for run to complete
     while run.status in ["queued", "in_progress"]:
         run = fabric_client.beta.threads.runs.retrieve(
@@ -567,18 +548,16 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
         )
         print(run.status)
         time.sleep(2)
-
     # Print messages
     response = fabric_client.beta.threads.messages.list(
         thread_id=thread.id,
         order="asc",
     )
     pretty_print(response)
-
     # Delete thread
     fabric_client.beta.threads.delete(thread_id=thread.id)
     ```
-    
+
     ![](./media/image71.png)
 
     ![](./media/image72.png)
