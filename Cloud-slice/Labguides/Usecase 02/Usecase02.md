@@ -1,6 +1,6 @@
-## Usecase 02- Build Fabric Data Agent using Mirrored Azure SQL Database in Microsoft Fabric
+# Usecase 02- Build Fabric Data Agent using Mirrored Azure SQL Database in Microsoft Fabric
 
-**Introduction**
+## Introduction
 
 Modern organizations require intelligent systems that can quickly
 analyze operational data and provide meaningful insights without complex
@@ -20,29 +20,17 @@ intelligent agents, allowing faster insights into product performance,
 customer distribution, and sales trends without writing complex SQL
 queries.
 
-**Lab Objective**
+## Lab Objectives
 
-The objective of this lab is to demonstrate how to build and configure a
-Fabric Data Agent that can analyze mirrored operational data from an
-Azure SQL Database.
+In this lab, you will complete the following tasks:
 
-By completing this lab, you will learn how to:
+- Task 1: Create a single database - Azure SQL Database
 
-- Create an **Azure SQL Database** with sample data.
+- Task 2: Create a Solution to Mirror Data using Azure SQL Mirroring
 
-- Create a **Microsoft Fabric workspace** to host data and analytics
-  resources.
+- Task 3: Create a Data Agent and Connect the Mirrored Database
 
-- Mirror an **Azure SQL Database into Microsoft Fabric** using Azure SQL
-  Mirroring.
-
-- Configure a **Fabric Data Agent** and connect it to the mirrored
-  database.
-
-- Query the data using **natural language prompts** to generate
-  insights.
-
-- Validate the agent responses using sample analytical questions.
+- Task 4: Test the agent and Validate the agent responses using sample analytical questions.
 
 ## Task 1: Create a single database - Azure SQL Database
 
@@ -66,10 +54,10 @@ in Fabric.
 
         ![Enter Your Password](../masterdoc/media/password.png)
 
-3. From the Azure portal home page, click on **Azure portal menu** represented by three horizontal bars on the left side of the Microsoft Azure command bar. Select SQL database
+3. Search for **Azure SQL Database (1)** and select it from the results **Azure SQL Database (2)**.
 
     ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image6.png)
+incorrect.](./media/azure-sql-database.png)
 
 3. Click on **+ Create**
 
@@ -77,18 +65,19 @@ incorrect.](./media/image6.png)
 
 4. On **Create a storage account** window, under the **Basics** tab, enter the below details to create a storage account and then click on **Next: Networking**
 
-    | Setting | Value  |
-    |--------|----------------|
-    | Subscription | Select your subscription |
-    | Resource group | Select your Resource group |
-    | Database name |  sqldatabase-<inject key="DeploymentID" enableCopy="false"></inject> |
-    | Server | Select **Create new** |
-    | Server name |  sqlserver<inject key="DeploymentID" enableCopy="false"></inject>  |
-    | Location | Southeast Asia |
-    | Server admin login |  sqladmin  |
-    | Password | ` password321! ` |
-    | Confirm password | ` password321! ` |
-    | Action | Click **OK** |
+    | Setting | Value |
+    |--------|-------|
+    | **Subscription** | Leave as default |
+    | **Resource group** | Select **labvm rg** (1) |
+    | **Database name** | sqldatabase-<inject key="DeploymentID" enableCopy="false"></inject> (2) |
+    | **Server** | Select **Create new** (3) |
+    | **Server name** | sqlserver<inject key="DeploymentID" enableCopy="false"></inject> (4) |
+    | **Location** | (5) |
+    |**Authentication method**| Use SQL Authentication (6) |
+    | **Server admin login** | sqladmin (7) |
+    | **Password** | `password321!` (8) |
+    | **Confirm password** | `password321!` (9) |
+    | **Action** | Click **OK** (10) |
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image8.png)
@@ -96,17 +85,17 @@ incorrect.](./media/image8.png)
     ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image9.png)
 
-5. In the Compute + Storage section, click on **Configure database**.
+5. In the Compute + Storage section, click on **Configure database (1)**.
 
     ![](./media/image10.png)
 
-6. For Service tier from the dropdown select **Standard(Budget Friendly) and for DTU enter 100 **and click** Apply**
+6. For Service tier from the dropdown select **Standard(Budget Friendly) (1)** and for **DTU enter 100 (2)** and click **Apply (3)**
 
     ![](./media/image11.png)
 
     ![](./media/image12.png)
 
-7. On the **Networking** tab, select **Public endpoint**, set **Allow Azure services and resources** to **Yes**, enable **Add current client IP address**, and then click **Next: Security\>**
+7. On the **Networking** tab, select **Public endpoint (1)**, set **Allow Azure services and resources** to **Yes** **(2)**, enable **Add current client IP address**, and then click **Next: Security\> (3)**
 
     ![](./media/image13.png)
 
@@ -114,7 +103,7 @@ incorrect.](./media/image9.png)
 
     ![](./media/image14.png)
 
-9.  On the *Additional settings* tab, select **Sample** under *Use existing data*, choose **AdventureWorksLT** when prompted, click **OK**, and then select **Review + create** to proceed.
+9.  On the **Additional settings** tab, select **Sample (1)** under **Use existing data**, choose **AdventureWorksLT (2)** when prompted, click **OK**, and then select **Review + create (3)** to proceed.
 
     ![](./media/image15.png)
 
@@ -132,9 +121,25 @@ incorrect.](./media/image9.png)
 
     ![](./media/image19.png)
 
-13. In the **Query editor (preview)**, enter the SQL server **login** as **sqladmin** and **password** as  **password321!**, then click **OK** to connect to the database.
+13. In the **Query editor (preview) (1)**, switch to the **Classic experience (2)**.
 
-    ![](./media/image20.png)
+     ![](../Usecase%2002/media/classic-experience.png)
+
+14. Enter the **SQL Server login** as 
+
+    - **Username**: 
+
+        ```
+        sqladmin 
+        ```
+
+    - **Password**:
+    
+        ```
+        password321!
+        ```
+
+        ![](../Usecase%2002/media/image20.png) 
 
 14. Make sure all the sample tables have been successfully deployed.
 
@@ -146,21 +151,19 @@ incorrect.](./media/image9.png)
 
 1. Click **Home** to return to the main page
 
-    ![](./media/image23.png)
+    ![](./media/image23-replace.png)
 
-2. Click on **Resource groups**.
+2. Choose on **Resource groups**.Click on the **lab-vm** resource group. 
 
-    ![](./media/image24.png)
+    ![](./media/resource-groups.png)
 
-3. Click on the **ResourceGroup1** resource group.
+    ![](./media/lab-vm.png)
 
-    ![](./media/image25.png)
+4. Select **SQL server**.
 
-4. Select **SQL server**
+    ![](./media/sqlserver.png)
 
-    ![](./media/image26.png)
-
-5. Navigate to Identity, switch the System assigned managed identity status to **On**, and then click **Save** to apply the change.
+5. Navigate to **Identity(1)** switch the System assigned managed identity status to **On (2)**, and then click **Save (3)** to apply the change.
 
     ![](./media/image27.png)
 
@@ -184,14 +187,14 @@ mirrored database, and validate that the data has synced successfully.
 
     - **Password/TAP**:<inject key="AzureAdUserPassword"></inject>
 
-3. Click on the **+New item** button in the navigation bar
+3. In the navigation bar, click on the **+ New item** button within the workspace **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject>**.
 
-    ![](./media/image34.png)
+    ![](../Usecase%2001/media/image15.png)
 
-1. In the **Filter by keyword** search box, enter **Mirroed Azure SQL Database** and select the **Mirroed Azure SQL Database**
+1. In the **Filter by keyword** search box, enter **Mirrored Azure SQL Database (1)** and select the **Mirrored Azure SQL Database (2)**
 item.
 
-    ![](./media/image35.png)
+    ![](./media/sql-database-1.png)
 
 2. In the **Choose a database connection to get started** window, select **Azure SQL database**
 
@@ -199,16 +202,17 @@ item.
 
 3. In Connection settings tab enter the below detail and click on Connect button
 
-    | Field | Value |
-    |------|-------|
-    | Server | SQL server URL saved in **Task 2 → Step 15** |
-    | Database | Enter your SQL database |
-    | Username |  sqladmin  |
-    | Password |  password321!  |
+    | Setting   | Value |
+    |-----------|-------|
+    | **Server**   | Enter the SQL Server URL saved in **Task 2 → Step 15** **(1)** |
+    | **Database** | Enter **sqldatabase<inject key="DeploymentID" enableCopy="false"></inject>** **(2)** |
+    | **Username** | Enter `sqladmin` **(3)**|
+    | **Password** | Enter `password321!` **(4)** |
+    |**Connect**| Click on Connect **(5)**
 
-    ![](./media/image37.png)
+    ![](./media/sqlserver-1.png)
 
-7. In the **Choose data** window, select **Select all** and click on **Connect** button
+7. In the **Choose data** window, select **Select all (1)** and click on **Connect (2)** button
 
     ![](./media/image38.png)
 
@@ -222,33 +226,31 @@ item.
 
     ![](./media/image41.png)
 
-1. In the left-sided navigation menu, navigate and click on ***FabricAgent-mirroringdatabaseXXXX***, as shown in the below image.
-
-    ![](./media/image42.png)
+1. In the left-sided navigation menu, navigate and click on **Fabric data agent-<inject key="DeploymentID" enableCopy="false"></inject>**
 
 ## Task 3: Create a Data Agent and Connect the Mirrored Database
 
-Here, you will create a new Fabric Data Agent and configure it to use
+In this task, you will create a new Fabric Data Agent and configure it to use
 the mirrored Azure SQL Database as its data source. This agent will
 respond to natural language prompts using the mirrored data.
 
 1. In the **Fabric** home page, select **+New item.**
 
-    ![](./media/image43.png)
+    ![](../Usecase%2001/media/image15.png)
 
-3. In the **Filter by item type** search box, enter ** data agent ** and select the **Data agent.**
+3. In the **Filter by item type** search box, enter **Data agent (1)** and select the **Data agent (2)**
 
-    ![](./media/image44.png)
+    ![](./media/data-agent.png)
 
-4. Enter **FabricDataAgent@lab.LabInstance.Id** as the Data agent name and select **Create**.
+4. Enter **FabricDataAgent-<inject key="DeploymentID" enableCopy="false"></inject>** **(1)** as the Data agent name and select **Create (2)**.
 
-    ![](./media/image45.png)
+    ![](./media/data-agent-02.png)
 
 5. Select **Add data source** to configure a new data source.
 
     ![](./media/image46.png)
 
-6. Select your Mirrored database resource for this workshop
+6. Select **sqldatabse<inject key="DeploymentID" enableCopy="false"></inject>** Mirrored database resource.
 
     ![](./media/image47.png)
 
@@ -256,7 +258,7 @@ respond to natural language prompts using the mirrored data.
 
 ## Task 4: Test the agent
 
-You will test the Data Agent by asking analytical questions like:
+In this task, you will test the Data Agent by asking analytical questions like:
 
 - Which product categories generate the highest sales?
 
@@ -267,10 +269,15 @@ You will test the Data Agent by asking analytical questions like:
 This validates the agent’s ability to understand and respond to business
 queries.
 
-1. Select the **SalesLT** schema for all tables.
+1. Select the **SalesLT (1)** schema for all tables.
 
-2. In the query panel of your Fabric data agent, type the question **Which product categories generate the highest sales?** and
-click the Send icon to view the agent’s response
+2. In the query panel of your Fabric data agent, **Paste below the question (2)** 
+
+    ```
+    Which product categories generate the highest sales?
+    ```
+
+3. Click on **Send (3)** icon to view the agent’s response
 
     ![](./media/image49.png)
 
@@ -278,13 +285,17 @@ click the Send icon to view the agent’s response
 
 3.  To test the agent, run the application and enter the sample questions to verify the responses.
 
- - List products with high list price but low sales volume. 
+    ```
+    List products with high list price but low sales volume. 
+    ```
 
     ![](./media/image51.png)
 
     ![](./media/image52.png)
-
-- **List the cities with the highest number of customers** 
+  
+    ```
+     List the cities with the highest number of customers
+    ```
 
     ![](./media/image53.png)
 
@@ -298,15 +309,15 @@ click the Send icon to view the agent’s response
 
     ![](./media/image56.png)
 
-    ![](./media/image57.png)
+    ![](./media/publish.png)
 
     ![](./media/image58.png)
 
-6.  Now, click on **FabricAgent-mirroringdatabaseXXXXXX** on the left-sided navigation pane.
+6.  Now, click on **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject>** on the left-sided navigation pane.
 
-![](./media/image59.png)
+    ![](./media/workspace-fabric.png)
 
-**Summary**
+## Summary
 
 In this lab, you successfully created an Azure SQL Database and mirrored
 its data into Microsoft Fabric using Azure SQL Mirroring. You then
@@ -320,7 +331,7 @@ demonstrates how Microsoft Fabric can integrate operational data sources
 with intelligent agents to simplify data exploration and enable faster
 business insights.
 
-This use case highlights the power of combining **data mirroring and
-AI-powered data agents** to create interactive and intelligent data
+This use case highlights the power of combining **data mirroring and AI-powered data agents** to create interactive and intelligent data
 experiences within the Microsoft Fabric ecosystem.
 
+### You have successfully completed the lab.
