@@ -418,58 +418,51 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
 1. In the Data agent Fabric page, in the **Home** ribbon select the **Settings**.
 
-    ![](./media/image61.png)
+   ![](./media/image61.png)
 
-2. Before you publish the AI skill, it doesn't have a published URL
-  value, as shown in this screenshot.
+1. Before you publish the AI skill, it doesn't have a published URL value, as shown in this screenshot.
 
-3. Close the AI Skill setting.
+1. Close the AI Skill setting.
 
-    ![](./media/image62.png)
+   ![](./media/image62.png)
 
-4. In the **Home** ribbon, select the **Publish**.
+1. In the **Home** ribbon, select the **Publish**.
 
-    ![](./media/image63.png)
+   ![](./media/image63.png)
  
-    ![](./media/image64.png)
+   ![](./media/image64.png)
 
-5. Click on the **View publishing details**
+1. Click on the **View publishing details**
 
-    ![](./media/image65.png)
+   ![](./media/image65.png)
 
-6. The published URL for the AI agent appears, as shown in this
-  screenshot.
+1. The published URL for the AI agent appears, as shown in this screenshot.
 
-7. Copy the URL and paste that in a notepad and then Save the notepad
-  to use the information in the upcoming steps.
+1. Copy the URL and paste that in a notepad and then Save the notepad to use the information in the upcoming steps.
 
-    ![](./media/image66.png)
+   ![](./media/image66.png)
 
-8. Select **Notebook1** in the left navigation pane.
+1. Select **Notebook1** in the left navigation pane.
 
-    ![](./media/image67.png)
+   ![](./media/image67.png)
 
-9. Use the **+ Code** icon below the cell output to add a new code cell
-  to the notebook, enter the following code in it and replace
-  the **URL**. Click on **▷ Run** button and review the output
+1. Use the **+ Code** icon below the cell output to add a new code cell to the notebook, enter the following code in it and replace the **URL**. Click on **▷ Run** button and review the output
 
-    ```
-    %pip install "openai==1.70.0" 
-    ```
+   ```
+   %pip install "openai==1.70.0" 
+   ```
 
-    ![](./media/image68.png)
+   ![](./media/image68.png)
  
-    ![](./media/image69.png)
+   ![](./media/image69.png)
 
-1. Use the **+ Code** icon below the cell output to add a new code cell
-  to the notebook, enter the following code in it and replace
-  the **URL**. Click on **▷ Run** button and review the output
+1. Use the **+ Code** icon below the cell output to add a new code cell to the notebook, enter the following code in it and replace the **URL**. Click on **▷ Run** button and review the output
 
-    ```
-    %pip install httpx==0.27.2 
-    ```
+   ```
+   %pip install httpx==0.27.2 
+   ```
 
-    ![](./media/image70.png)
+   ![](./media/image70.png)
 
 1. Use the **+ Code** icon below the cell output to add a new code cell to the notebook. Enter the following code in the new cell and replace the **URL** as required. Then, click on the **▷ Run** button and review the output.
 
@@ -529,14 +522,12 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
            return super()._prepare_options(options)
 
-
    # Pretty printing helper
    def pretty_print(messages):
        print("---Conversation---")
        for m in messages:
            print(f"{m.role}: {m.content[0].text.value}")
        print()
-
 
    fabric_client = FabricOpenAI()
 
@@ -585,16 +576,7 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
 ## Summary:
 
-In this lab, you learned how to unlock the power of conversational
-analytics using Microsoft Fabric’s Data Agent. You configured a Fabric
-workspace, ingested structured data into a lakehouse, and set up an AI
-skill to translate natural language questions into SQL queries. You also
-enhanced the AI agent’s capabilities by providing instructions and
-examples to refine query generation. Finally, you called the agent
-programmatically from a Fabric notebook, demonstrating end-to-end AI
-integration. This lab empowers you to make enterprise data more
-accessible, usable, and intelligent for business users through natural
-language and generative AI technologies.
+In this lab, you learned how to unlock the power of conversational analytics using Microsoft Fabric’s Data Agent. You configured a Fabric workspace, ingested structured data into a lakehouse, and set up an AI skill to translate natural language questions into SQL queries. You also enhanced the AI agent’s capabilities by providing instructions and examples to refine query generation. Finally, you called the agent programmatically from a Fabric notebook, demonstrating end-to-end AI integration. This lab empowers you to make enterprise data more accessible, usable, and intelligent for business users through natural language and generative AI technologies.
 
 ### You have successfully completed the lab. Click on Next >> to proceed with the next lab.
 
