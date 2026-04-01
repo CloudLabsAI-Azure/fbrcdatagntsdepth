@@ -461,7 +461,7 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
  
     ![](./media/image69.png)
 
-10. Use the **+ Code** icon below the cell output to add a new code cell
+1. Use the **+ Code** icon below the cell output to add a new code cell
   to the notebook, enter the following code in it and replace
   the **URL**. Click on **▷ Run** button and review the output
 
@@ -471,7 +471,7 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
     ![](./media/image70.png)
 
-11. Use the **+ Code** icon below the cell output to add a new code cell to the notebook. Enter the following code in the new cell and replace the **URL** as required. Then, click on the **▷ Run** button and review the output.
+1. Use the **+ Code** icon below the cell output to add a new code cell to the notebook. Enter the following code in the new cell and replace the **URL** as required. Then, click on the **▷ Run** button and review the output.
 
     ```python
     import requests
