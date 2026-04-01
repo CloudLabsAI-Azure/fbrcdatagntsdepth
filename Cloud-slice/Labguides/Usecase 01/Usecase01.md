@@ -579,9 +579,9 @@ pretty_print(response)
 fabric_client.beta.threads.delete(thread_id=thread.id)
 ```
 
-    ![](./media/image71.png)
+   ![](./media/image71.png)
 
-    ![](./media/image72.png)
+   ![](./media/image72.png)
 
 
 ## Summary:
