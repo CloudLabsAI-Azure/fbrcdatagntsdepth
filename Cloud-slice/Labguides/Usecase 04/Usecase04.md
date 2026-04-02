@@ -4,7 +4,7 @@
 
 In today’s competitive digital marketplace, e-commerce companies
 generate large volumes of data from customer transactions, product
-catalogs, website interactions, and payment systems. Extracting
+catalogues, website interactions, and payment systems. Extracting
 meaningful insights from this data is essential for improving customer
 experience, optimizing operations, and increasing revenue. However,
 managing and analyzing large datasets from multiple sources can be
@@ -44,7 +44,7 @@ and enables faster decision-making across departments.
 
 With this solution, Zava’s business users, analysts, and management
 teams can easily explore data, monitor key performance indicators, and
-gain real-time insights into sales performance, customer behavior, and
+gain real-time insights into sales performance, customer behaviour, and
 product demand. By combining advanced analytics with AI-powered Fabric
 Agents, Zava builds a scalable and intelligent e-commerce analytics
 platform that supports data-driven growth and operational excellence.
@@ -86,7 +86,8 @@ queries later.
     ![A screenshot of a computer AI-generated content may be
   incorrect.](./media/image7.png)
 
-3. On the **New lakehouse** dialog box,enter **fabricagent_lakehouse** in the **Name** field, click on the **Create** button and open the new lakehouse.
+3. On the **New lakehouse** dialog box,
+ enter **fabricagent_lakehouse** in the **Name** field, click on the **Create** button and open the new lakehouse.
 
     ![](./media/image8.png)
     
@@ -187,7 +188,7 @@ and click on **Load Table**, then select **New table**.
 
     ![](./media/image35.png)
 
-7. Run the application and enter the sample questions to verify theresponses.
+7. Run the application and enter the sample questions to verify the responses.
 
     ```
     Which day has the highest sales?
@@ -285,7 +286,7 @@ prompt as per the values below **OR** paste these in the Test:
 
 # Exercise 2: Connecting Fabric Agent to Copilot Studio
 
-This exercise focuses on enabling Copilot Studio to communicate with the Fabric Data Agent. You will create a Copilot agent, configure its behavior, link it to the Fabric Agent, and ensure that both agents collaborate to produce richer insights. This establishes multi‑agent communication across platforms.
+This exercise focuses on enabling Copilot Studio to communicate with the Fabric Data Agent. You will create a Copilot agent, configure its behaviour, link it to the Fabric Agent, and ensure that both agents collaborate to produce richer insights. This establishes multi‑agent communication across platforms.
 
 ## Task 1:Creating the Copilot Studio Agent
 
@@ -342,7 +343,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     ![](./media/image59.png)
 
-2. Click **Connect to an external agent** and select **Microsft Fabric (preview)**.
+2. Click **Connect to an external agent** and select **Microsoft Fabric (preview)**.
 
     ![](./media/image60.png)
 
@@ -515,7 +516,7 @@ This use case focuses on how an e‑commerce organization can integrate
 analytics, and multi‑agent collaboration. By combining a unified
 analytics platform (Microsoft Fabric) with conversational AI (Copilot
 Studio and Teams), business users can seamlessly access sales trends,
-product insights, and customer behavior without writing queries. The
+product insights, and customer behaviour without writing queries. The
 solution demonstrates how AI agents can retrieve data from Fabric
 Lakehouse, enrich responses using instructions, and work alongside other
 agents to streamline business intelligence workflows.

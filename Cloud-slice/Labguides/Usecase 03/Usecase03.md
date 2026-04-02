@@ -250,7 +250,7 @@ In this task, you will provision the required services and deploy the applicatio
 
     - **Environment**: **Fabricagent<inject key="DeploymentID" enableCopy="false"></inject>** 
     - **Azure Subscription:** Select the **default subscription**  
-    - **Aiservice:** Select **Sweden Central**  
+    - **AIservice:** Select **Sweden Central**  
     - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  
     - **Resource Group:** Enter **lab-vm**
 
@@ -308,7 +308,11 @@ In this task, you will provision the required services and deploy the applicatio
 
     ![](./media/image42.png)
 
-16. Run the bash script from the output of the azd deployment. Replace the with your Fabric workspace Id created in the previous steps. The script will look like the following: `bash ./infra/scripts/fabric_scripts/run_fabric_items_scripts.sh <fabric-workspaceId>`
+16. Run the bash script from the output of the azd deployment. Replace the with your Fabric workspace Id created in the previous steps. The script will look like the following: 
+
+    ```
+    python scripts/00_build_solution.py --from 02 --fabric-workspace-id <Workspace-id>
+    ```
 
     ![](./media/image43.png)
 
