@@ -25,11 +25,8 @@ queries.
 In this lab, you will complete the following tasks:
 
 - Task 1: Create a single database - Azure SQL Database
-
 - Task 2: Create a Solution to Mirror Data using Azure SQL Mirroring
-
 - Task 3: Create a Data Agent and Connect the Mirrored Database
-
 - Task 4: Test the agent and Validate the agent responses using sample analytical questions.
 
 ## Task 1: Create a single database - Azure SQL Database
