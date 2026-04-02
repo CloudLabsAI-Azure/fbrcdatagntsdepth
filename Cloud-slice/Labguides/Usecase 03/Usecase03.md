@@ -184,14 +184,15 @@ reports.
 
     | Property | Value |
     |---------|-------|
-    | Name | **Fabric agent-<inject key="DeploymentID" enableCopy="false"></inject>**| 
-    | Advanced | Under **License mode**, select **Fabric** |
-    | Default storage format | Small dataset storage format |
-    | Template apps | Check **Develop template apps** |
+    | Name | **Fabric agent-<inject key="DeploymentID" enableCopy="false"></inject>** **(1)**| 
+    | Advanced | Click on advance **(2)**|
+    | License mode | Select **Fabric** **(3)**|
+    | Capacity | Choose fabric capacity **(4)**|
+    Click on **Apply (5)**   
 
-    ![](./media/.png)
+    ![](./media/workspace.png)
 
-    ![](./media/.png)
+    ![](./media/workspace-01.png)
 
 8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
 

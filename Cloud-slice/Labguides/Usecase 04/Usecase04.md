@@ -255,11 +255,10 @@ prompt as per the values below **OR** paste these in the Test:
 
     ![](./media/image42.png)
 
-
     ```
     Which products have the lowest stock levels? 
     ```
-
+    
     ![](./media/image43.png)
 
     ![](./media/image44.png)
