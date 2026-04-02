@@ -72,7 +72,7 @@ incorrect.](./media/azure-sql-database.png)
     | **Database name** | sqldatabase-<inject key="DeploymentID" enableCopy="false"></inject> (2) |
     | **Server** | Select **Create new** (3) |
     | **Server name** | sqlserver<inject key="DeploymentID" enableCopy="false"></inject> (4) |
-    | **Location** | <inject key="Region" enableCopy="false" /> (5) |
+    | **Location** | <inject key="Region" enableCopy="false" ></inject>(5) |
     |**Authentication method**| Use SQL Authentication (6) |
     | **Server admin login** | sqladmin (7) |
     | **Password** | `password321!` (8) |

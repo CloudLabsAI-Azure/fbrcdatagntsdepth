@@ -1,5 +1,6 @@
-## Usecase 03- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
-**Introduction**
+# Usecase 03- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
+
+## Introduction
 
 Modern organizations generate large volumes of data across multiple
 systems, making it difficult for business users and analysts to access
@@ -27,7 +28,7 @@ Instead of manually querying multiple datasets, users can simply ask
 questions in natural language and receive actionable insights directly
 from the system.
 
-**Objective**
+## Lab Objective
 
 The objective of this use case is to demonstrate how organizations can
 leverage **agentic AI with a unified data foundation** to improve data
@@ -106,48 +107,47 @@ unstructured documents:
 
 ## Prerequisites
 
-- **GitHub Account: You are expected to have your own GitHub login
-  credentials.  
-  If you do not have an account, please create one by visiting:  
-  +++<https://github.com/signup?user_email=&source=form-home-signup+++>**
+- GitHub Account: You are expected to have your own GitHub login credentials.  
+If you do not have an account, please create one by visiting: 
+
+   ``` 
+   https://github.com/signup
+   ```
 
 ## Task 0: Create a GitHub account
 
-In this task, you create a new **Github account** with the same tenant
+In this task, you will create a new **Github account** with the same tenant
 credentials that you have used in this lab.
 
-1.  Navigate to the GitHub with this link
-    +++<https://github.com/+++> and click on **Sign up** to proceed
-    further.
+1. Navigate to the following URL: Then, click on **Sign up** to proceed further.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image2.png)
+    ```
+    https://github.com/
+    ```
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image2.png)
 
-2.  Now, to create a new GitHub account, enter
-    the **email**, **password** and a unique **username** and click
-    on **Continue** button.
+2. Enter your personal **Email**, **Password**, and a unique **Username** to create a new GitHub account, then click on **Continue**.
 
-> ![A screenshot of a login box AI-generated content may be
-> incorrect.](./media/image3.png)
+    ![A screenshot of a login box AI-generated content may be
+incorrect.](./media/image3.png)
 
-3.  Start the **verification** **puzzle** by following the instruction
-    on the screen. Click on **Submit.**
+3. Start the **verification** **puzzle** by following the instruction on the screen. Click on **Submit.**
 
-4.  Enter the **verification** **code** you’ve received on your mail.
+4. Enter the **Verification code** you’ve received on your mail.
 
-> ![A screenshot of a email form AI-generated content may be
-> incorrect.](./media/image4.png)
+    ![A screenshot of a email form AI-generated content may be
+incorrect.](./media/image4.png)
 
-5.  Now, with your credentials sign-in to GitHub and click on **Sign
-    in.**
+5.  Now, with your credentials sign-in to GitHub and click on **Sign in.**
 
-> ![A screenshot of a login page AI-generated content may be
-> incorrect.](./media/image5.png)
+    ![A screenshot of a login page AI-generated content may be
+incorrect.](./media/image5.png)
 
-6.  You have successfully created a new account on GitHub.
+6. You have successfully created a new account on GitHub.
 
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image6.png)
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image6.png)
 
 ## Task 1: Create a Fabric workspace
 
@@ -156,595 +156,556 @@ the items needed for this lakehouse tutorial, which includes lakehouse,
 dataflows, Data Factory pipelines, the notebooks, Power BI datasets, and
 reports.
 
-1.  Open your browser, navigate to the address bar, and type or paste
-    the following
-    URL:+++https://app.fabric.microsoft.com/+++ press the **Enter** button
-    and sign in with your credentials
+1. Open your web browser and go to the address bar. Type or paste the provided URL, then press **Enter** to proceed.
 
-    |   |   |
-    |---|---|
-    | Username | +++@lab.CloudPortalCredential(User1).Username+++ |
-    | Password | +++@lab.CloudPortalCredential(User1).Password+++ |
+    ```
+    https://app.fabric.microsoft.com  
+    ```
 
-2.  Fabric home page, select **+New workspace** tile.
+2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image7.png)
+    - **Email/Username** : <inject key="AzureAdUserPassword"</inject 
 
-3.  In the **Create a workspace** pane that appears on the right side,
-    enter the following details, and click on the **Apply** button.
+        ![](../Usecase%2001/media/image7.png)
 
-| Property | Value |
-|---------|-------|
-| Name | `+++Fabric agent@lab.LabInstance.Id+++` **(XXXXX can be Lab instance ID)** |
-| Advanced | Under **License mode**, select **Fabric** |
-| Default storage format | Small dataset storage format |
-| Template apps | Check **Develop template apps** |
+3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
 
-> ![](./media/image8.png)
+   - **Password**  : <inject key="AzureAdUserPassword"</inject
 
-Note: To find your lab instant ID, select 'Help' and copy the instant
-ID.
+        ![](../Usecase%2001/media/image8.png)
 
-> ![A screenshot of a computer Description automatically
-> generated](./media/image9.png)
->
-> ![](./media/image10.png)
+4. In **Stay signed in?** window, click on the **Yes** button.
 
-4.  Wait for the deployment to complete. It takes 2-3 minutes to
-    complete.
+6. Fabric home page, select **+New workspace** tile.
 
-> ![](./media/image11.png)
+    ![](../Usecase%2001/media/image10.png)
+
+7. In the **Create a workspace** pane that appears on the right side, enter the following details, and click on the **Apply** button.
+
+    | Property | Value |
+    |---------|-------|
+    | Name | **Fabric agent-<inject key="DeploymentID" enableCopy="false"></inject>**| 
+    | Advanced | Under **License mode**, select **Fabric** |
+    | Default storage format | Small dataset storage format |
+    | Template apps | Check **Develop template apps** |
+
+    ![](./media/.png)
+
+    ![](./media/.png)
+
+8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
+
+    ![](./media/.png)
 
 ## Task 2: Retrieve your Fabric workspace ID
 
 You will need your workspace ID to pass as a parameter when building the
 solution.
 
-1.  Look at the URL — the workspace ID is the GUID that appears
-    after /groups/:
+1. Look at the URL - the workspace ID is the GUID that appears after /groups/:
 
-2.  Copy the **Workspace ID** from the URL (e.g.,
-    https://app.fabric.microsoft.com/groups/{workspace-id}/...) and save
-    it in **Notepad** for later use![](./media/image12.png)
+2. Copy the **Workspace ID** from the URL (for example, `https://app.fabric.microsoft.com/groups/{workspace-id}/...`) and save it in **Notepad** for later use.
+
+    ![](./media/image12.png)
+
 
 ## Task 3: Open development environment
 
-1.  Open your browser, navigate to the address bar, type or paste the
-    following URL: +++https://github.com/technofocus-pte/agnticapp-for-unified-data+++
+1. Open your browser, navigate to the address bar, type or paste the following URL: 
 
-![](./media/image13.png)
+    ```
+    https://github.com/technofocus-pte/agnticapp-for-unified-data 
+    ```
 
-2.  Click on **fork** to fork the repo. Give unique name to the repo and
-    click on **Create repo** button.
+    ![](./media/image13.png)
 
-![](./media/image14.png)
+2. Click on **fork** to fork the repo.Give unique name to the repo and click on **Create repo** button.
 
-![](./media/image15.png)
+    ![](./media/image14.png)
 
-3.  Click on **Code -\> Codespaces -\> Create Codespace on main**
+    ![](./media/image15.png)
 
-![](./media/image16.png)
+3. Click on **Code -\Codespaces -\Create Codespace on main**
 
-4.  Wait for the Codespaces environment to setup. It takes few minutes
-    to setup completely
+    ![](./media/image16.png)
 
-![](./media/image17.png) ![](./media/image18.png)
+4. Wait for the Codespaces environment to setup. It takes few minutes to setup completely
 
-![](./media/image19.png)
+    ![](./media/image17.png) 
+
+    ![](./media/image18.png)
+
+    ![](./media/image19.png)
 
 ## Task 4: Provision services and deploy the application to Azure and Fabric
 
-1.  Run the following command on the Terminal. It generates the code to
-    copy. Copy the code and press Enter.
+1. Run the following command on the Terminal. It generates the code to copy. Copy the code and press Enter.
 
-+++azd auth login+++
+    ```
+    azd auth login
+    ``` 
 
-> ![](./media/image20.png)
+    ![](./media/image20.png)
 
-2.  Default browser opens to enter the generated code to verify. Enter
-    the code and click **Next**.
+2. Default browser opens to enter the generated code to verify. Enter the code and click **Next**.
 
-![](./media/image21.png)
+    ![](./media/image21.png)
 
-![](./media/image22.png)
+    ![](./media/image22.png)
 
-> ![](./media/image23.png)
->
-> ![](./media/image24.png)
+    ![](./media/image23.png)
 
-3.  Login to Azure:
+    ![](./media/image24.png)
 
-+++az login+++
+3. Login to Azure:
 
-![](./media/image25.png)
+    ```
+    az login 
+    ```
 
-4.  Default browser opens to enter the generated code to verify. Enter
-    the code and click **Next**.
+    ![](./media/image25.png)
 
-> ![](./media/image26.png)
+4. Default browser opens to enter the generated code to verify. Enter the code and click **Next**.
+
+    ![](./media/image26.png)
 
 5.  Select your azure subscription
 
-> ![](./media/image27.png)
+    ![](./media/image27.png)
 
-6.  Register the Microsoft Cognitive Services resource provider
-    (required if not already registered on your subscription)
+6. Register the Microsoft Cognitive Services resource provider (required if not already registered on your subscription)
 
-+++az provider register --namespace Microsoft.CognitiveServices+++
+    ```
+    az provider register --namespace Microsoft.CognitiveServices
+    ``` 
 
-> ![](./media/image28.png)
+    ![](./media/image28.png)
 
-7.  Provision and deploy all the resources:
+7. Provision and deploy all the resources:
 
-+++azd up+++
+    ```
+    azd up
+    ``` 
 
-![](./media/image29.png)
+    ![](./media/image29.png)
 
-8.  Select below values.
+8. Select the following values to create an environment for Azure resources:
 
-- **To create an environment for Azure resources**,
-  enter **+++Fabricagent@lab.LabInstance.Id**+++
+    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>  
+    - **Azure Subscription:** Select the **default subscription**  
+    - **azureAiServiceLocation:** Select **Sweden Central**  
+    - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  
+    - **Resource Group:** Enter **lab-vm**
 
-- **Select an Azure Subscription to
-  use** : **@lab.CloudSubscription.Name**
+        ![](./media/image30.png)
 
-- **azureAiServiceLocation**: **Sweden Central**
+        ![](./media/image31.png)
 
-- **‘Location' infrastructure
-  parameter:** **@lab.CloudResourceGroup(ResourceGroup1).Location**
+        ![](./media/image32.png)
 
-- **Resource Group:** **@lab.CloudResourceGroup(ResourceGroup1).Name**
-
-![](./media/image30.png)
-
-![](./media/image31.png)
-
-![](./media/image32.png)
-
-9.  This deployment will take *7-10 minutes* to provision the resources
-    in your account and set up the solution with sample data.
+9. This deployment will take *7-10 minutes* to provision the resources in your account and set up the solution with sample data.
 
 10. Now the deployment is complete
 
-![](./media/image33.png)
+    ![](./media/image33.png)
 
 11. Create and activate a virtual environment
 
-> +++python -m venv .venv+++
+    ```
+    python -m venv .venv 
+    ```
 
-![](./media/image34.png)
+    ![](./media/image34.png)
 
-12. Use the top-left **menu icon** in **Visual Studio Code**, then
-    navigate to **Terminal → New Terminal** to open a new terminal
-    window in the workspace
+12. Use the top-left **menu icon** in **Visual Studio Code**, then navigate to **Terminal → New Terminal** to open a new terminal window in the workspace
 
-![](./media/image35.png)
+    ![](./media/image35.png)
 
-![](./media/image36.png)
+    ![](./media/image36.png)
 
-13. Run the following command in the terminal to install the required
-    Python dependencies
+13. Run the following command in the terminal to install the required Python dependencies
 
-+++pip install uv && uv pip install -r scripts/requirements.txt+++
+    ```
+    pip install uv && uv pip install -r scripts/requirements.txt 
+    ```
 
-![](./media/image37.png)
+    ![](./media/image37.png)
 
-![](./media/image38.png)
+    ![](./media/image38.png)
 
-14. Run the following command on the Terminal. It generates the code to
-    copy. Copy the code and press Enter.
+14. Run the following command on the Terminal. It generates the code to copy. Copy the code and press Enter.
 
-+++az login+++
+    ```
+    az login 
+    ```
 
-![](./media/image39.png)
+    ![](./media/image39.png)
 
-![](./media/image40.png)
+    ![](./media/image40.png)
 
-![](./media/image41.png)
+    ![](./media/image41.png)
 
-15. Select your **Azure subscription** from the list to continue the
-    setup process.
+15. Select your **Azure subscription** from the list to continue the setup process.
 
-![](./media/image42.png)
+    ![](./media/image42.png)
 
-16. Run the bash script from the output of the azd deployment. Replace
-    the with your Fabric workspace Id created in the previous steps. The
-    script will look like the following:
+16. Run the bash script from the output of the azd deployment. Replace the with your Fabric workspace Id created in the previous steps. The script will look like the following: `bash ./infra/scripts/fabric_scripts/run_fabric_items_scripts.sh <fabric-workspaceId>`
 
-+++bash ./infra/scripts/fabric_scripts/run_fabric_items_scripts.sh <fabric-workspaceId>+++
-
-![](./media/image43.png)
+    ![](./media/image43.png)
 
 17. Press Enter to start create resources
 
-![](./media/image44.png)
+    ![](./media/image44.png)
 
-![](./media/image45.png)
+    ![](./media/image45.png)
 
-![](./media/image46.png)
+    ![](./media/image46.png)
 
 ## Task 5: Review the Fabric Lakehouse and Data
 
-1.  Go to your +++**https://app.fabric.microsoft.com/**+++ workspace
+1. Navigate to the workspace in the Fabric portal.
 
-2.  Make sure resource got deployed successfully
+2. Make sure resource got deployed successfully
 
-> ![](./media/image47.png)
+    ![](./media/image47.png)
 
-3.  Click on the **Lakehouse** to verify that the data has been
-    successfully loaded.
+3. Click on the **Lakehouse** to verify that the data has been successfully loaded.
 
-![](./media/image48.png)
+    ![](./media/image48.png)
 
-![](./media/image49.png)
+    ![](./media/image49.png)
 
-4.  Return to the **Codespace** to test the agent.
+4. Return to the **Codespace** to test the agent.
 
 ## Task 6: Test the agent
 
-1.  To test the agent, run the following command in the terminal.
+1. To test the agent, run the following command in the terminal.
 
-+++python scripts/08_test_agent.py+++
+    ```
+    python scripts/08_test_agent.py 
+    ```
 
-> ![](./media/image50.png)
+    ![](./media/image50.png)
 
-2.  Enter the sample questions +++**What is the average score from
-    inspections?**+++
+2. Enter the sample questions: 
+    
+    ```
+    What is the average score from inspections?
+    ```
 
-> ![](./media/image51.png)
+    ![](./media/image51.png)
 
-**+++What constitutes a failed inspection?+++**
+    ```
+    What constitutes a failed inspection?
+    ```
 
-![](./media/image52.png)
+    ![](./media/image52.png)
 
-![](./media/image53.png)
+    ![](./media/image53.png)
 
-+++Do any inspections violate quality control standards in our Inspection Procedures?+++
+    ```
+    Do any inspections violate quality control standards in our Inspection Procedures? 
+    ```
 
-![](./media/image54.png)
+    ![](./media/image54.png)
 
-![](./media/image55.png)
+    ![](./media/image55.png)
 
-3.  Press **Ctrl+C** to cancel the process.
+3. Press **Ctrl+C** to cancel the process.
 
-![](./media/image56.png)
+    ![](./media/image56.png)
 
 ## Task 7: Create a Fabric data agent
 
-1.  Go to your +++https://app.fabric.microsoft.com/+++ Microsoft Fabric
-    workspace
+1. In the Fabric workspace, select **New item**, search for **Data Agent**, and then choose **Data Agent** from the results.
 
-2.  Select "New item" → Search for "Data Agent" → select Data
-    agent
     ![](./media/image57.png)
 
-4.  Provide a name as <FabricDataAgent@lab.LabInstance.Id> and click
-    **Create**
+2. Provide a name as **FabricDataAgent<inject key="DeploymentID" enableCopy="false"></inject>** and click **Create**
 
-> ![](./media/image58.png)
+    ![](./media/image58.png)
 
-4.  Select **Add data source** to configure a new data source.
+4. Select **Add data source** to configure a new data source.
+    
     ![](./media/image59.png)
 
-5.  Select your Ontology resource for this workshop
+5. Select **Ontology resource**.
 
-> ![](./media/image60.png)
->
-> ![](./media/image61.png)
+    ![](./media/image60.png)
 
-6.  Click **Agent instructions** from top menu.
+    ![](./media/image61.png)
 
-> ![](./media/image62.png)
+6. Click **Agent instructions** from top menu.
 
-7.  Add the below agent instructions:
+    ![](./media/image62.png)
 
- +++You are a helpful assistant that can answer user questions using data. Support group by in GQL+++
+7. Add the below agent instructions:
 
-> ![](./media/image63.png)
->
-> ![](./media/image64.png)
+    ```
+    You are a helpful assistant that can answer user questions using data. Support group by in GQL 
+    ```
 
-8.  Click Publish from the top menu and select Publish.
+    ![](./media/image63.png)
 
-> ![](./media/image65.png)
->
-> ![](./media/image66.png)
->
-> ![](./media/image67.png)
->
-> Note: The Ontology set up may take up to 15 minutes so retry after
-> some time if you don't see good responses.
+    ![](./media/image64.png)
 
-5.  To test the agent, run the application and enter the sample
-    questions to verify the responses.
+8. Click Publish from the top menu and select Publish.
 
-+++How many tickets are high priority+++
+    ![](./media/image65.png)
 
-![](./media/image68.png)
+    ![](./media/image66.png)
 
-![](./media/image69.png)
+    ![](./media/image67.png)
 
-+++What is the average score from inspections?+++
+    > Note: The Ontology set up may take up to 15 minutes so retry after some time if you don't see good responses.
 
-![](./media/image70.png)
+5. To test the agent, run the application and enter the sample questions to verify the responses.
 
-![](./media/image71.png)
+    ```
+    How many tickets are high priority
+    ``` 
 
-![](./media/image72.png)
+    ![](./media/image68.png)
 
-+++**Show tickets grouped by status**+++
+    ![](./media/image69.png)
 
-![](./media/image73.png)
+    ```
+    What is the average score from inspections?
+    ``` 
 
-![](./media/image74.png)
+    ![](./media/image70.png)
 
-6.  Save the **Workspace ID** and **AISkills ID** in **Notepad** for
-    later use
+    ![](./media/image71.png)
 
-![](./media/image75.png)
+    ![](./media/image72.png)
 
-7.  Return to the **Codespace** to deploy and launch the application.
+    ```
+    Show tickets grouped by status
+    ```
+
+    ![](./media/image73.png)
+
+    ![](./media/image74.png)
+
+6. Save the **Workspace ID** and **AISkills ID** in **Notepad** for later use
+
+    ![](./media/image75.png)
+
+7. Return to the **Codespace** to deploy and launch the application.
 
 ## Task 8: Deploy and launch the application
 
-1.  Run the following command to set the **AZURE_ENV_DEPLOY_APP**
-    environment variable to **true** before deployment.
+1. Run the following command to set the **AZURE_ENV_DEPLOY_APP** environment variable to **true** before deployment.
 
-+++ azd env set AZURE_ENV_DEPLOY_APP true+++
+    ```
+    azd env set AZURE_ENV_DEPLOY_APP true 
+    ```
 
-![](./media/image76.png)
+    ![](./media/image76.png)
 
-2.  Run azd up - This will provision Azure resources
+2. Run azd up - This will provision Azure resources
 
-+++azd up+++
+    ```
+    azd up 
+    ```
 
-![](./media/image77.png)
+    ![](./media/image77.png)
 
-3.  Once the deployment has completed successfully, copy the Web app URL
+3. Once the deployment has completed successfully, copy the Web app URL
 
-![](./media/image78.png)
+    ![](./media/image78.png)
 
-4.  Run the following command to set up app permissions
+4. Run the following command to set up app permissions
 
- +++**python scripts/00_build_solution.py --from 09**+++
+    ```
+    python scripts/00_build_solution.py --from 09
+    ```
 
- ![](./media/image79.png)
+    ![](./media/image79.png)
 
-5.  Press Enter to start configuration
+5. Press Enter to start configuration
 
-> ![](./media/image80.png)
->
-> ![](./media/image81.png)
+    ![](./media/image80.png)
 
-6.  Click on the app URL
+    ![](./media/image81.png)
 
-> ![](./media/image82.png)
->
-> ![](./media/image83.png)
->
-> ![](./media/image84.png)
->
-> **Sample Questions**
->
-> To help you get started, here are some **Sample Questions** you can
-> ask in the app:
->
-> For Retail sales analysis use case:
+6. Click on the app URL
 
- +++Show total revenue by year for last 5 years+++.
+    ![](./media/image82.png)
 
-> ![](./media/image85.png)
->
-> ![](./media/image86.png)
->
-> ![](./media/image87.png)
->
-> ![](./media/image88.png)
+    ![](./media/image83.png)
+
+    ![](./media/image84.png)
+
+7. **Sample Questions**
+
+    - To help you get started, here are some **Sample Questions** you can ask in the app:
+
+    - For Retail sales analysis use case:
+
+        ```
+        Show total revenue by year for last 5 years.
+        ```
+
+        ![](./media/image85.png)
+
+        ![](./media/image86.png)
+
+        ![](./media/image87.png)
+
+        ![](./media/image88.png)
 
 ## Task 9: Verify Azure Resources and Review Fabric Lakehouse Data 
 
-1.  Open a browser go to +++https://portal.azure.com+++ and sign in with
-    your cloud slice account below.
+1. In the azure portal Select **Resource groups**
 
-2.  Select **Resource groups**
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image89.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image89.png)
+3. Click on the **Resource group** **lab-vm**.
 
-3.  Click on your assigned **Resource group**.
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image90.png)
 
-![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image90.png)
+4. Make sure the below resource got deployed successfully
 
-4.  Make sure the below resource got deployed successfully
+    - Foundry
 
-- Foundry
+    - Foundry project
 
-- Foundry project
+    - Application Insights
 
-- Application Insights
+    - Search service
 
-- Search service
+    - Azure Storage account
 
-- Azure Storage account
+    - App Service
 
-- App Service
+    - Azure Cosmos DB account
 
-- Azure Cosmos DB account
-
-![](./media/image91.png)
+        ![](./media/image91.png)
 
 ## Task 10: Consume Fabric data agent from Microsoft Foundry Services
 
-1.  Select **Foundry**
+1. Select **Foundry**
 
-![](./media/image92.png)
+    ![](./media/image92.png)
 
-2.  On the Overview pane, click on **Go to Foundry portal**. This will
-    navigate you to the Microsoft Foundry portal.
+2. On the Overview pane, click on **Go to Foundry portal**. This will navigate you to the Microsoft Foundry portal.
 
-![](./media/image93.png)
+    ![](./media/image93.png)
 
-![](./media/image94.png)
+    ![](./media/image94.png)
 
-Once navigated to Foundry Portal, select **Agents** from the left menu
-you will already see an agent **pre created**. If not created, then
-please click on the **+ New agent** option to get it created.
+3. Once navigated to Foundry Portal, select **Agents** from the left menu
+you will already see an agent **pre created**. If not created, then please click on the **+ New agent** option to get it created.
 
-![](./media/image95.png)
+    ![](./media/image95.png)
 
-![](./media/image96.png)
+    ![](./media/image96.png)
 
-3.  Select the newly created **agent**, and a configuration pane will be
-    opened on the right. Enter the agent name as +++**Fabric Agent**+++
+3. Select the newly created **agent**, and a configuration pane will be opened on the right. Enter the agent name as  **Fabric Agent** 
 
-![](./media/image97.png)
+    ![](./media/image97.png)
 
-4.  In the same agent configuration pane, scroll down and click on **+
-    Add** for **Knowledge** parameter.
+4. In the same agent configuration pane, scroll down and click on **+Add** for **Knowledge** parameter.
 
-![](./media/image98.png)
+    ![](./media/image98.png)
 
-5.  In the **Add knowledge** pane, select **Microsoft Fabric** 
+5. In the **Add knowledge** pane, select **Microsoft Fabric** 
 
-![](./media/image99.png)
+    ![](./media/image99.png)
 
-6.  Click on **+ Create connection**
+6. Click on **+ Create connection**
 
-![](./media/image100.png)
+    ![](./media/image100.png)
 
-7.  Enter the custom keys, such as the **Workspace ID** and **AISkills
-    ID**, that you saved in **Task 7\> Step 6**.Provide the connection
-    name as **Fabric-aiskills**, and click **Connect.**
+7. Enter the custom keys, such as the **Workspace ID** and **AISkills ID**, that you saved in **Task 7\Step 6**.Provide the connection name as **Fabric-aiskills**, and click **Connect.**
 
-![](./media/image101.png)
+    ![](./media/image101.png)
 
-8.  Enter Instructions
+8. Enter Instructions
 
-```
-You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
+    ```
+    You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
 
-Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
-- inspection_id: Unique identifier for each inspection
-- ticket_id: Identifier associated with the inspection ticket
-- result: Inspection outcome (Pass or Fail)
-- score: Numeric score assigned to the inspection
+    Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
+    - inspection_id: Unique identifier for each inspection
+    - ticket_id: Identifier associated with the inspection ticket
+    - result: Inspection outcome (Pass or Fail)
+    - score: Numeric score assigned to the inspection
 
-You can analyze and summarize the data to provide insights such as:
-- Total number of inspections
-- Number of passed and failed inspections
-- Average, highest, and lowest inspection scores
-- Distribution of inspection results
-- Score trends across inspections or tickets
+    You can analyze and summarize the data to provide insights such as:
+    - Total number of inspections
+    - Number of passed and failed inspections
+    - Average, highest, and lowest inspection scores
+    - Distribution of inspection results
+    - Score trends across inspections or tickets
 
-When responding:
-- Use the Fabric data source to retrieve accurate information.
-- Provide clear summaries and insights based on the inspection results.
-- When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
-- Ensure answers are concise, accurate, and based only on the available dataset.
-```
+    When responding:
+    - Use the Fabric data source to retrieve accurate information.
+    - Provide clear summaries and insights based on the inspection results.
+    - When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
+    - Ensure answers are concise, accurate, and based only on the available dataset.
+    ```
 
-![](./media/image102.png)
+    ![](./media/image102.png)
 
-9.  Select, **Agents** from left menu, and then choose the **Fabric
-    Agent** agent and click on **Try in playground**.
+9. Select, **Agents** from left menu, and then choose the **Fabric Agent** agent and click on **Try in playground**.
 
-![](./media/image103.png)
+    ![](./media/image103.png)
 
-10. A chat panel will open where you can enter your prompts. The agent
-    will now respond using the documents and datasets you've connected.
+10. A chat panel will open where you can enter your prompts. The agent will now respond using the documents and datasets you've connected.
 
-Sample prompts -
+    - Sample prompts -
 
-**+++What constitutes a failed inspection?+++**
+        ```
+        What constitutes a failed inspection? 
+        ```
 
-![](./media/image104.png)
+    ![](./media/image104.png)
 
-![](./media/image105.png)
+    ![](./media/image105.png)
 
-+++**What is the total number of tickets in the system?**+++
+    ```
+    What is the total number of tickets in the system?
+    ```
 
-![](./media/image106.png)
+    ![](./media/image106.png)
 
-![](./media/image107.png)
+    ![](./media/image107.png)
 
-+++**Do any inspections violate quality control standards in our
-Inspection Procedures?+++**
+    ```
+    Do any inspections violate quality control standards in our
+    Inspection Procedures? 
+    ```
 
-![](./media/image108.png)
+    ![](./media/image108.png)
 
-![](./media/image109.png)
+    ![](./media/image109.png)
 
-## Task 11: Delete the Resources
 
-1.  To delete resources , type **Resource groups** in the Azure portal
-    search bar, navigate and click on **Resource
-    groups** under **Services**.
+## Summary
 
-![A screenshot of a computer Description automatically
-generated](./media/image110.png)
+This use case demonstrates how organizations can build **intelligent,
+agent-driven data applications** by integrating **Microsoft Fabric**
+with **Microsoft Foundry**. The solution establishes a **unified data
+foundation** where enterprise data stored in Fabric Lakehouse and
+Warehouse can be accessed and analyzed through AI-powered agents.
 
-2.  In the Resource groups page, select your resource group.
+By connecting a **Fabric Data Agent** to Foundry, users can interact
+with enterprise datasets using **natural language queries** instead of
+writing complex SQL or manually analyzing multiple data sources. The
+AI agent retrieves relevant data, performs analysis, and generates
+insights such as averages, trends, summaries, and grouped results.
 
-3.  On the **Resource Group** home page, select all resources except
-    **Fabric Capacity**, and then click **Delete**.
+The solution also provisions supporting Azure services, including AI
+services, search, storage, and web applications, enabling a complete
+**end-to-end agentic application architecture**. This allows
+organizations to combine **structured enterprise data with AI
+capabilities** to deliver conversational analytics and automated
+insights.
 
-![](./media/image111.png)
-
-4.  In the **Delete Resources** pane that appears on the right side,
-    navigate to **Enter “delete” to confirm deletion** field, then click
-    on the **Delete** button
-
-![](./media/image112.png)
-
-![](./media/image113.png)
-
-9.  Go to your +++ https://app.fabric.microsoft.com/+++ Microsoft Fabric
-    workspace
-
-10. Select the **...** option under the workspace name and
-    select **Workspace settings**.
-
-> ![](./media/image114.png)
-
-11. Select **General** and **Remove this workspace.**
-
-> ![A screenshot of a computer AI-generated content may be
-> incorrect.](./media/image115.png)
-
-12. Click on **Delete** in the warning that pops up.
-
-> ![](./media/image116.png)
-
-13. Wait for a notification that the Workspace has been deleted, before
-    proceeding to the next lab.
-
-> ![](./media/image117.png)
->
-> **Summary**
->
-> This use case demonstrates how organizations can build **intelligent,
-> agent-driven data applications** by integrating **Microsoft Fabric**
-> with **Microsoft Foundry**. The solution establishes a **unified data
-> foundation** where enterprise data stored in Fabric Lakehouse and
-> Warehouse can be accessed and analyzed through AI-powered agents.
->
-> By connecting a **Fabric Data Agent** to Foundry, users can interact
-> with enterprise datasets using **natural language queries** instead of
-> writing complex SQL or manually analyzing multiple data sources. The
-> AI agent retrieves relevant data, performs analysis, and generates
-> insights such as averages, trends, summaries, and grouped results.
->
-> The solution also provisions supporting Azure services, including AI
-> services, search, storage, and web applications, enabling a complete
-> **end-to-end agentic application architecture**. This allows
-> organizations to combine **structured enterprise data with AI
-> capabilities** to deliver conversational analytics and automated
-> insights.
->
-> Overall, the use case highlights how **agentic AI applications** built
-> on a unified data platform can simplify data access, accelerate
-> analytics, and support faster, data-driven decision-making for both
-> technical and non-technical users.
+Overall, the use case highlights how **agentic AI applications** built
+on a unified data platform can simplify data access, accelerate
+analytics, and support faster, data-driven decision-making for both
+technical and non-technical users.
 
