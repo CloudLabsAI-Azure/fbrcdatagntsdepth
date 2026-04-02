@@ -65,7 +65,7 @@ In this lab, you will complete the following tasks:
  - Exercise 3: Connect the Fabric Data Agent to Teams
     - Task 1: Add Copilot Capabilities
     - Task 2: Testing the connected Fabric Data Agent
-    
+
 # Exercise 1: Creating and Configuring the Fabric Data Agent
 
 In this exercise, you will establish the foundational components in Microsoft Fabric. You will create a workspace, set up a lakehouse, ingest sample CSV datasets, generate a semantic model, and configure a Fabric Data Agent capable of answering analytical questions. This provides the core data intelligence layer used throughout the rest of the lab.
@@ -77,9 +77,9 @@ along with additional CSV files. This establishes your raw dataset
 foundation inside Fabric, enabling you to start transformations and
 queries later.
 
-1. Create a new lakehouse by clicking on the **+New item** button in the navigation bar.
+1. Create a new lakehouse by clicking on the **+ New item** button in the navigation bar.
 
-    ![](./media/image6.png)
+    ![](./media/new-item.jpg)
 
 2. On the **Filter by item type** search box, enter **Lakehouse** and select the lakehouse item.
 
@@ -105,7 +105,7 @@ queries later.
 
     ![](./media/image12.png)
 
-7. Browse to **C:\LabFiles** on your VM, then select **customers.csv, Orders_Data.csv** and **products.csv** file and click
+7. Browse to **C:\LabFiles\C:\LabFiles\lab file** on your VM, then select **customers.csv, Orders_Data.csv** and **products.csv** file and click
 on **Open** button.
 
     ![](./media/image13.png)

@@ -156,8 +156,6 @@ reports.
 
 8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
 
-    ![](./media/.png)
-
 ## Task 2: Retrieve the Fabric Workspace ID and Set Up the Development Environment
 
 In this task, you will open the development environment, begin working on the required components, and use your workspace ID as a parameter while building the solution.
@@ -250,7 +248,7 @@ In this task, you will provision the required services and deploy the applicatio
 
 8. Select the following values to create an environment for Azure resources:
 
-    - **environment**: Fabricagent<inject key="DeploymentID" enableCopy="false"></inject> 
+    - **Environment**: **Fabricagent<inject key="DeploymentID" enableCopy="false"></inject>** 
     - **Azure Subscription:** Select the **default subscription**  
     - **Aiservice:** Select **Sweden Central**  
     - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  
