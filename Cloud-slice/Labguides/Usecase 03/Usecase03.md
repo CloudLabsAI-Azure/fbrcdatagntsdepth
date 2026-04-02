@@ -43,11 +43,9 @@ accessibility and decision-making. The key goals include:
 
 **2. Build and Configure a Fabric Data Agent**
 
-- Create a **Fabric Data Agent** capable of querying datasets using
-  natural language.
+- Create a **Fabric Data Agent** capable of querying datasets using natural language.
 
-- Connect Ontology resources and define agent instructions to support
-  enterprise-specific queries.
+- Connect Ontology resources and define agent instructions to support enterprise-specific queries.
 
 **3. Deploy Azure and Foundry Components**
 
@@ -116,8 +114,7 @@ If you do not have an account, please create one by visiting:
 
 ## Task 0: Create a GitHub account
 
-In this task, you will create a new **Github account** with the same tenant
-credentials that you have used in this lab.
+In this task, you will create a new **Github account** with the same tenant credentials that you have used in this lab.
 
 1. Navigate to the following URL: Then, click on **Sign up** to proceed further.
 
@@ -200,17 +197,19 @@ reports.
 
 ## Task 2: Retrieve your Fabric workspace ID
 
-You will need your workspace ID to pass as a parameter when building the
+In this task, you will need your workspace ID to pass as a parameter when building the
 solution.
 
 1. Look at the URL - the workspace ID is the GUID that appears after /groups/:
 
 2. Copy the **Workspace ID** from the URL (for example, `https://app.fabric.microsoft.com/groups/{workspace-id}/...`) and save it in **Notepad** for later use.
 
-    ![](./media/image12.png)
+    ![](./media/workspace-id.png)
 
 
 ## Task 3: Open development environment
+
+In this task, you will open the development environment and begin working on the required components.
 
 1. Open your browser, navigate to the address bar, type or paste the following URL: 
 
@@ -240,6 +239,8 @@ solution.
 
 ## Task 4: Provision services and deploy the application to Azure and Fabric
 
+In this task, you will provision the required services and deploy the application to Azure and Fabric.
+
 1. Run the following command on the Terminal. It generates the code to copy. Copy the code and press Enter.
 
     ```
@@ -252,9 +253,9 @@ solution.
 
     ![](./media/image21.png)
 
-    ![](./media/image22.png)
+    ![](./media/pickanaccount.png)
 
-    ![](./media/image23.png)
+    ![](./media/continue.png)
 
     ![](./media/image24.png)
 
@@ -270,7 +271,7 @@ solution.
 
     ![](./media/image26.png)
 
-5.  Select your azure subscription
+5. Select the default Azure subscription, leave it as the default option, and press **Enter**.
 
     ![](./media/image27.png)
 
@@ -294,7 +295,7 @@ solution.
 
     - **environment**: Fabricagent<inject key="DeploymentID" enableCopy="false"></inject> 
     - **Azure Subscription:** Select the **default subscription**  
-    - **azureAiServiceLocation:** Select **Sweden Central**  
+    - **Aiservice:** Select **Sweden Central**  
     - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  
     - **Resource Group:** Enter **lab-vm**
 
@@ -302,9 +303,11 @@ solution.
 
         ![](./media/image31.png)
 
-        ![](./media/image32.png)
+        ![](./media/lab-vm.png)
 
-9. This deployment will take *7-10 minutes* to provision the resources in your account and set up the solution with sample data.
+        > **Note:** If you are unable to deploy the AI service in **Sweden Central**, you can use any of the following regions: **australiaeast**, **eastus**, **eastus2**, **francecentral**, **japaneast**, **swedencentral**, **uksouth**, **westus**, **westus3**.
+
+        >Note: This deployment will take *7-10 minutes* to provision the resources in your account and set up the solution with sample data.
 
 10. Now the deployment is complete
 
@@ -346,7 +349,7 @@ solution.
 
     ![](./media/image41.png)
 
-15. Select your **Azure subscription** from the list to continue the setup process.
+15. Select the default Azure subscription and press **Enter** to continue.
 
     ![](./media/image42.png)
 
@@ -364,6 +367,8 @@ solution.
 
 ## Task 5: Review the Fabric Lakehouse and Data
 
+In this task, you will review the Fabric Lakehouse and data to understand its structure and contents.
+
 1. Navigate to the workspace in the Fabric portal.
 
 2. Make sure resource got deployed successfully
@@ -379,6 +384,8 @@ solution.
 4. Return to the **Codespace** to test the agent.
 
 ## Task 6: Test the agent
+
+In this task, you will test the agent to validate its functionality and responses.
 
 1. To test the agent, run the following command in the terminal.
 
@@ -418,19 +425,21 @@ solution.
 
 ## Task 7: Create a Fabric data agent
 
-1. In the Fabric workspace, select **New item**, search for **Data Agent**, and then choose **Data Agent** from the results.
+In this task, you will create a Fabric Data Agent and configure it for use with your data.
 
-    ![](./media/image57.png)
+1. In the Fabric workspace, select **New item (1)**, search for **Data Agent**, and then choose **Data Agent (2)** from the results.
 
-2. Provide a name as **FabricDataAgent<inject key="DeploymentID" enableCopy="false"></inject>** and click **Create**
+    ![](../Usecase%2002/media/data-agent.png)
 
-    ![](./media/image58.png)
+2. Provide a name as **FabricDataAgent<inject key="DeploymentID" enableCopy="false"></inject>** **(1)** and click **Create** **(2)**
+
+    ![](./media/fabric-data-agent-new.png)
 
 4. Select **Add data source** to configure a new data source.
     
     ![](./media/image59.png)
 
-5. Select **Ontology resource**.
+5. Select **Ontology resource (1)** and click on **Add (2)**.
 
     ![](./media/image60.png)
 
@@ -454,7 +463,7 @@ solution.
 
     ![](./media/image65.png)
 
-    ![](./media/image66.png)
+    ![](./media/publish-new.png)
 
     ![](./media/image67.png)
 
@@ -496,6 +505,8 @@ solution.
 
 ## Task 8: Deploy and launch the application
 
+In this task, you will deploy and launch the application to validate its functionality.
+
 1. Run the following command to set the **AZURE_ENV_DEPLOY_APP** environment variable to **true** before deployment.
 
     ```
@@ -530,7 +541,7 @@ solution.
 
     ![](./media/image81.png)
 
-6. Click on the app URL
+6. Click on the app URL and open it.
 
     ![](./media/image82.png)
 
@@ -558,13 +569,15 @@ solution.
 
 ## Task 9: Verify Azure Resources and Review Fabric Lakehouse Data 
 
+In this task, you will verify the deployed Azure resources and review the Fabric Lakehouse data.
+
 1. In the azure portal Select **Resource groups**
 
     ![A screenshot of a computer AI-generated content may be incorrect.](./media/image89.png)
 
 3. Click on the **Resource group** **lab-vm**.
 
-    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image90.png)
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/lab-vm-new.png)
 
 4. Make sure the below resource got deployed successfully
 
@@ -586,7 +599,9 @@ solution.
 
 ## Task 10: Consume Fabric data agent from Microsoft Foundry Services
 
-1. Select **Foundry**
+In this task, you will consume the Fabric Data Agent from Microsoft Foundry Services and interact with it programmatically.
+
+1. Select **Foundry** resource.
 
     ![](./media/image92.png)
 
@@ -596,14 +611,12 @@ solution.
 
     ![](./media/image94.png)
 
-3. Once navigated to Foundry Portal, select **Agents** from the left menu
-you will already see an agent **pre created**. If not created, then please click on the **+ New agent** option to get it created.
-
-    ![](./media/image95.png)
+3. Once navigated to Foundry Portal, select **Agents (1)** from the left menu
+you will already see an agent **pre created**. If not created, then please click on the **+ New agent (2)** option to get it created.
 
     ![](./media/image96.png)
 
-3. Select the newly created **agent**, and a configuration pane will be opened on the right. Enter the agent name as  **Fabric Agent** 
+3. Select the newly created **agent (1)**, and a configuration pane will be opened on the right. Enter the agent name as  **Fabric Agent (2)** 
 
     ![](./media/image97.png)
 
@@ -619,7 +632,7 @@ you will already see an agent **pre created**. If not created, then please clic
 
     ![](./media/image100.png)
 
-7. Enter the custom keys, such as the **Workspace ID** and **AISkills ID**, that you saved in **Task 7\Step 6**.Provide the connection name as **Fabric-aiskills**, and click **Connect.**
+7. Enter the custom keys, such as the **Workspace ID** and **AISkills ID**, that you saved in **Task 7\Step 6** **(1)**.Provide the connection name as **Fabric-aiskills (2)**, and click **Connect (3)**
 
     ![](./media/image101.png)
 
@@ -662,26 +675,26 @@ you will already see an agent **pre created**. If not created, then please clic
         What constitutes a failed inspection? 
         ```
 
-    ![](./media/image104.png)
+        ![](./media/image104.png)
 
-    ![](./media/image105.png)
+        ![](./media/image105.png)
 
-    ```
-    What is the total number of tickets in the system?
-    ```
+        ```
+        What is the total number of tickets in the system?
+        ```
 
-    ![](./media/image106.png)
+        ![](./media/image106.png)
 
-    ![](./media/image107.png)
+        ![](./media/image107.png)
 
-    ```
-    Do any inspections violate quality control standards in our
-    Inspection Procedures? 
-    ```
+        ```
+        Do any inspections violate quality control standards in our
+        Inspection Procedures? 
+        ```
 
-    ![](./media/image108.png)
+        ![](./media/image108.png)
 
-    ![](./media/image109.png)
+        ![](./media/image109.png)
 
 
 ## Summary

@@ -1,8 +1,8 @@
-# Build AI Apps and agents with Azure
+# Microsoft Fabric: Data Agents
 
 ## Getting Started with the lab
 
-Welcome to your Build AI Apps and agents with Azure Workshop, Let's begin by making the most of this experience.
+Welcome to your Microsoft Fabric: Data agents with Azure Workshop, Let's begin by making the most of this experience.
 
 ## Accessing Your Lab Environment
 
