@@ -132,7 +132,7 @@ incorrect.](./media/image2.png)
     ![A screenshot of a login box AI-generated content may be
 incorrect.](./media/image3.png)
 
-3. Start the **verification** **puzzle** by following the instruction on the screen. Click on **Submit.**
+3. Start the **Verification** **puzzle** by following the instruction on the screen. Click on **Submit.**
 
 4. Enter the **Verification code** you’ve received on your mail.
 
@@ -164,13 +164,13 @@ reports.
 
 2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
 
-    - **Email/Username** : <inject key="AzureAdUserPassword"</inject 
+    - **Email/Username** : <inject key="AzureAdUserEmail"></inject> 
 
         ![](../Usecase%2001/media/image7.png)
 
 3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
 
-   - **Password**  : <inject key="AzureAdUserPassword"</inject
+   - **Password**  : <inject key="AzureAdUserPassword"></inject>
 
         ![](../Usecase%2001/media/image8.png)
 
@@ -291,7 +291,7 @@ solution.
 
 8. Select the following values to create an environment for Azure resources:
 
-    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>  
+    - **environment**: Fabricagent<inject key="DeploymentID" enableCopy="false"></inject> 
     - **Azure Subscription:** Select the **default subscription**  
     - **azureAiServiceLocation:** Select **Sweden Central**  
     - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  

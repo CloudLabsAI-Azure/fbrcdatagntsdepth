@@ -71,56 +71,9 @@ platform that supports data-driven growth and operational excellence.
 
 # Exercise 1: Creating and Configuring the Fabric Data Agent
 
-## In this exercise, you will establish the foundational components in Microsoft Fabric. You will create a workspace, set up a lakehouse, ingest sample CSV datasets, generate a semantic model, and configure a Fabric Data Agent capable of answering analytical questions. This provides the core data intelligence layer used throughout the rest of the lab.
+In this exercise, you will establish the foundational components in Microsoft Fabric. You will create a workspace, set up a lakehouse, ingest sample CSV datasets, generate a semantic model, and configure a Fabric Data Agent capable of answering analytical questions. This provides the core data intelligence layer used throughout the rest of the lab.
 
-## Task 1: Create a Fabric workspace
-
-In this task, you create a Fabric workspace. The workspace contains all
-the items needed for this lakehouse tutorial, which includes lakehouse,
-dataflows, Data Factory pipelines, the notebooks, Power BI datasets, and
-reports.
-
-1.  Open your browser, navigate to the address bar, and type or paste
-    the following
-    URL:**+++https://app.fabric.microsoft.com/+++** press the **Enter** button
-    and sign in with your credentials
-
-    |   |   |
-    |---|---|
-    | Username | +++@lab.CloudPortalCredential(User1).Username+++ |
-    | Password | +++@lab.CloudPortalCredential(User1).Password+++ |
-
-2.  Fabric home page, select **+New workspace** tile.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image1.png)
-
-3.  In the **Create a workspace** pane that appears on the right side,
-    enter the following details, and click on the **Apply** button.
-
-| Property | Value |
-|---------|-------|
-| Name | `+++Fabric-Copilot-XXXXX+++` *(XXXXX can be Lab instance ID)* |
-| Advanced | Under **License mode**, select **Fabric** |
-| Default storage format | Small dataset storage format |
-| Template apps | Check **Develop template apps** |
-
-> ![](./media/image2.png)
-
-Note: To find your lab instant ID, select 'Help' and copy the instant
-ID.
-
-> ![A screenshot of a computer Description automatically
-> generated](./media/image3.png)
->
-> ![](./media/image4.png)
-
-4.  Wait for the deployment to complete. It takes 2-3 minutes to
-    complete.
-
-> ![](./media/image5.png)
-
-## Task 2: Create a lakehouse and Ingest sample data
+## Task 1: Create a lakehouse and Ingest sample data
 
 In this task, you set up a lakehouse and ingest the NYC Taxi sample data
 along with additional CSV files. This establishes your raw dataset
@@ -133,13 +86,13 @@ queries later.
 > ![](./media/image6.png)
 
 2.  On the **Filter by item type** search box,
-    enter **+++Lakehouse+++** and select the lakehouse item.
+    enter ** Lakehouse ** and select the lakehouse item.
 
 > ![A screenshot of a computer AI-generated content may be
 > incorrect.](./media/image7.png)
 
 3.  On the **New lakehouse** dialog box,
-    enter **+++fabricagent_lakehouse+++** in the **Name** field, click
+    enter ** fabricagent_lakehouse ** in the **Name** field, click
     on the **Create** button and open the new lakehouse.
 
 \[!note\]**Note**: Ensure to remove space
@@ -219,8 +172,8 @@ before **fabricagent_lakehouse**.
 
 ![](./media/image27.png)
 
-16. In the **New semantic model** dialog enter +++**E-commerce Order
-    Dataset**+++ and then select the **all** tables from the list of
+16. In the **New semantic model** dialog enter  **E-commerce Order
+    Dataset**  and then select the **all** tables from the list of
     tables and select **Confirm** to create the new model.
 
 > ![](./media/image28.png)
@@ -256,15 +209,15 @@ before **fabricagent_lakehouse**.
 5.  When you first ask the questions with the listed tables select **all
     tables** the data agent answers them fairly well.
 
-6.  For instance, for the question +++**Who are the top 10 customers by
-    total purchase amount?**+++
+6.  For instance, for the question  **Who are the top 10 customers by
+    total purchase amount?** 
 
 ![](./media/image35.png)
 
 7.  Run the application and enter the sample questions to verify the
     responses.
 
-+++**Which day has the highest sales?**+++
+ **Which day has the highest sales?** 
 
 ![](./media/image36.png)
 
@@ -320,13 +273,13 @@ prompt as per the values below **OR** paste these in the Test:
 
 8.  Test the enhanced agent with more complex queries:
 
- +++How many orders are placed each day?+++
+  How many orders are placed each day? 
 
 ![](./media/image41.png)
 
 ![](./media/image42.png)
 
- **+++Which products have the lowest stock levels?+++**
+ ** Which products have the lowest stock levels? **
 
 ![](./media/image43.png)
 
@@ -363,7 +316,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 ## Task 1:Creating the Copilot Studio Agent
 
 1.  Open a new browser tab and navigate to 
-    +++https://copilotstudio.microsoft.com/+++.
+     https://copilotstudio.microsoft.com/ .
 
 > ![](./media/image48.png)
 
@@ -439,7 +392,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
 ![](./media/image65.png)
 
-6.  Enter the **agent name** as **+++DataAgent-@lab.LabInstance.Id+++**,
+6.  Enter the **agent name** as ** DataAgent-@lab.LabInstance.Id **,
     verify the **connection**, and then click **Add and configure** to
     proceed with the agent setup.
 
@@ -457,7 +410,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
 1.  Test the Fabric Data Agent connection with progressive queries:
 
-   **+++What are the top 10 highest value orders?+++**
+   ** What are the top 10 highest value orders? **
 
 ![](./media/image70.png)
 
@@ -474,19 +427,19 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 **Note:** The response generation process may take **5–6 minutes** to
 complete.
 
-+++**What is the average price per category?+++**
+ **What is the average price per category? **
 
 ![](./media/image75.png)
 
 ![](./media/image76.png)
 
-  +++**What percentage of orders use credit card vs PayPal vs debit card?**+++
+   **What percentage of orders use credit card vs PayPal vs debit card?** 
 
 ![](./media/image77.png)
 
 ![](./media/image78.png)
 
-  +++**What is the revenue by payment method?**+++
+   **What is the revenue by payment method?** 
 
 ![](./media/image79.png)
 
@@ -553,7 +506,7 @@ In this exercise, you will publish the Copilot agent to Teams, enabling business
 
 1.  Test the Fabric Data Agent connection with progressive queries:
 
-  +++What is the revenue trend over time?+++
+   What is the revenue trend over time? 
  
 > ![](./media/image96.png)
 
@@ -563,13 +516,13 @@ In this exercise, you will publish the Copilot agent to Teams, enabling business
 >
 > ![](./media/image98.png)
 >
-  +++What are the top 10 highest value orders?+++
+   What are the top 10 highest value orders? 
 
 ![](./media/image99.png)
 
 ![](./media/image100.png)
 
-+++Which payment method is used the most?+++
+ Which payment method is used the most? 
 
 ![](./media/image101.png)
 
