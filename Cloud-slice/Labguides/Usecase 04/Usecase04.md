@@ -240,7 +240,7 @@ prompt as per the values below **OR** paste these in the Test:
 
     - {CUSTOM_TERMINOLOGY}: Leave empty or add your domain-specific terms
 
-    ![](./media/image40.png)
+        ![](./media/image40.png)
 
 8. Test the enhanced agent with more complex queries:
 
