@@ -158,7 +158,7 @@ In this task, you will create a new Lakehouse and populate it with AdventureWork
 
     > **Note:** Wait until the progress reaches 100%.
 
-## Task 3: Create Data agent
+## Task 3: Create and configure a Fabric Data Agent connected to Lakehouse tables.
 
 In this task, you will create a Fabric Data Agent and connect it to the
 Lakehouse. You will select the required Dimension and Fact tables to
@@ -216,7 +216,7 @@ incorrect.](./media/image29.png)
 
         ![](./media/image34.png)
 
-## Task 4: Provide instructions
+## Task 4: Improve the agent’s responses using instructions and example queries.
 
 In this task, you will enrich the Data Agent by adding natural language questions along with their corresponding SQL queries. These examples help the agent understand domain-specific context and generate more accurate SQL responses for real-world queries. You will add relevant question–SQL pairs, validate their accuracy, test how the agent responds to similar queries, and refine the examples to improve the agent’s performance.
 
@@ -412,7 +412,7 @@ generated](./media/image48.png)
 
     ![](./media/image60.png)
 
-## Task 5: Use the Data agent programmatically
+## Task 5: Publish the agent and test it programmatically via API calls inside a Fabric notebook.
 
 In this task, you will validate and enhance the Data Agent by reviewing its instructions and examples, and by using the AI skill programmatically within a Fabric notebook. You will check whether the AI skill is properly configured and confirm that a published URL is available. You will then use the AI skill within a Fabric notebook to test responses using sample queries, and refine the instructions and examples based on the results to improve its overall effectiveness.
 

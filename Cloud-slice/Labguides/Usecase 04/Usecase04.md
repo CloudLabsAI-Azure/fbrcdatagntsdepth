@@ -1,6 +1,6 @@
-## Usecase 04-Integrate Fabric Data Agent with Microsoft Teams for actionable insights and agent-to-agent collaboration using Copilot Studio
+# Usecase 04-Integrate Fabric Data Agent with Microsoft Teams for actionable insights and agent-to-agent collaboration using Copilot Studio
 
-**Introduction**
+## Introduction
 
 In today’s competitive digital marketplace, e-commerce companies
 generate large volumes of data from customer transactions, product
@@ -49,26 +49,23 @@ product demand. By combining advanced analytics with AI-powered Fabric
 Agents, Zava builds a scalable and intelligent e-commerce analytics
 platform that supports data-driven growth and operational excellence.
 
-**Objectives**
+## Lab Objectives
 
-- Build and configure a **Fabric Data Agent** connected to an e‑commerce
-  semantic model.
+In this lab, you will complete the following tasks:
 
-- Ingest and model data inside a **Fabric Lakehouse** and expose it
-  through a semantic model.
-
-- Enhance the agent’s intelligence using **meta‑prompts** and
-  agent‑level instructions.
-
-- Connect the Fabric Data Agent to **Copilot Studio** and enable
-  multi‑agent communication.
-
-- Publish the Copilot agent and integrate it into **Microsoft Teams**
-  for real‑time analytics.
-
-- Test the end‑to‑end flow by querying business insights directly in
-  Teams.
-
+- Exercise 1: Creating and Configuring the Fabric Data Agent
+    - Task 1: Create a lakehouse and Ingest sample data
+    - Task 2: Create a Fabric data agent
+    - Task 3: Optimizing with Meta-Prompts
+    - Task 5: Publishing the Agent
+- Exercise 2: Connecting Fabric Agent to Copilot Studio
+    - Task 1:Creating the Copilot Studio Agent
+    - Task 2: Adding the Fabric Agent as a connected agent for Copilot Studio
+    - Task 3: Testing the connected Fabric Data Agent
+ - Exercise 3: Connect the Fabric Data Agent to Teams
+    - Task 1: Add Copilot Capabilities
+    - Task 2: Testing the connected Fabric Data Agent
+    
 # Exercise 1: Creating and Configuring the Fabric Data Agent
 
 In this exercise, you will establish the foundational components in Microsoft Fabric. You will create a workspace, set up a lakehouse, ingest sample CSV datasets, generate a semantic model, and configure a Fabric Data Agent capable of answering analytical questions. This provides the core data intelligence layer used throughout the rest of the lab.
@@ -164,7 +161,7 @@ and click on **Load Table**, then select **New table**.
 
     ![](./media/image29.png)
 
-## Task 3: Create a Fabric data agent
+## Task 2: Create a Fabric data agent
 
 1. In the **Fabricagent<inject key="DeploymentID" enableCopy="false"></inject>** workspace page, navigate and click on **+New item** button, then select **Data agent**
 
@@ -200,7 +197,7 @@ and click on **Load Table**, then select **New table**.
 
     ![](./media/image37.png)
 
-## Task 4: Optimizing with Meta-Prompts
+## Task 3: Optimizing with Meta-Prompts
 
 1. In the **Setup** section, locate the **Agent instructions** field.(Alternatively, you can also locate the **Agent instructions** in the navigation bar on the top.)
 
@@ -210,25 +207,25 @@ and click on **Load Table**, then select **New table**.
 
 2. Generate agent-level instructions using this meta-prompt in the **test pane** (on the right where it says **Test the agent's responses**):
 
-```
-Meta-Prompt: Generate Agent-Level Instructions:
- Analyze your available data sources and create agent-level instructions for yourself (max 15000 chars).
+    ```
+    Meta-Prompt: Generate Agent-Level Instructions:
+    Analyze your available data sources and create agent-level instructions for yourself (max 15000 chars).
 
- Objective: {AGENT_OBJECTIVE}
- Users: {USER_PERSONA}
+    Objective: {AGENT_OBJECTIVE}
+    Users: {USER_PERSONA}
 
- Examine your data sources: list all sources, types, and primary use. Analyze domain, time coverage, and main themes.
+    Examine your data sources: list all sources, types, and primary use. Analyze domain, time coverage, and main themes.
 
- Generate instructions with:
- ## Objective
- ## Data Sources (list with priority)
- ## Key Terminology (infer from columns/measures)
- ## Response Guidelines
- Style: {RESPONSE_STYLE}
- ## Handling Common Topics (3-5 based on available data)
+    Generate instructions with:
+    ## Objective
+    ## Data Sources (list with priority)
+    ## Key Terminology (infer from columns/measures)
+    ## Response Guidelines
+    Style: {RESPONSE_STYLE}
+    ## Handling Common Topics (3-5 based on available data)
 
- Custom terms: {CUSTOM_TERMINOLOGY}
-```
+    Custom terms: {CUSTOM_TERMINOLOGY}
+    ```
 
 3. When using this meta-prompt, replace the variables manually in the
 prompt as per the values below **OR** paste these in the Test:
@@ -258,7 +255,7 @@ prompt as per the values below **OR** paste these in the Test:
     ```
     Which products have the lowest stock levels? 
     ```
-    
+
     ![](./media/image43.png)
 
     ![](./media/image44.png)
@@ -527,3 +524,4 @@ solution demonstrates how AI agents can retrieve data from Fabric
 Lakehouse, enrich responses using instructions, and work alongside other
 agents to streamline business intelligence workflows.
 
+### You have successfully completed the lab. 

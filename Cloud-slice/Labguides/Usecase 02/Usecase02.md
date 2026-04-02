@@ -253,7 +253,7 @@ respond to natural language prompts using the mirrored data.
 
     ![](./media/image48.png)
 
-## Task 4: Test the agent
+## Task 4: Test the agent and Validate the agent responses using sample analytical questions.
 
 In this task, you will test the Data Agent by asking analytical questions like:
 

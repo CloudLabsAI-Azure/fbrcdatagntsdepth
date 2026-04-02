@@ -28,67 +28,30 @@ Instead of manually querying multiple datasets, users can simply ask
 questions in natural language and receive actionable insights directly
 from the system.
 
-## Lab Objective
+## Lab Objectives
 
-The objective of this use case is to demonstrate how organizations can
-leverage **agentic AI with a unified data foundation** to improve data
-accessibility and decision-making. The key goals include:
+In this lab, you will complete the following tasks:
 
-**Establish a Unified Data Foundation in Microsoft Fabric**
+- Task 1: Create a Fabric workspace
+- Task 2: Retrieve the Fabric Workspace ID and Set Up the Development Environment
+- Task 3: Provision services and deploy the application to Azure and Fabric
+- Task 4: Review the Fabric Lakehouse and Data
+- Task 5: Test the agent
+- Task 6: Create a Fabric data agent
+- Task 7: Deploy and launch the application
+- Task 8: Verify Azure Resources and Review Fabric Lakehouse Data 
+- Task 9: Consume Fabric data agent from Microsoft Foundry Services
 
-- Create a governed Fabric workspace with Lakehouse, Warehouse, and
-  semantic models.
 
-- Load and validate enterprise datasets for analysis.
-
-**2. Build and Configure a Fabric Data Agent**
-
-- Create a **Fabric Data Agent** capable of querying datasets using natural language.
-
-- Connect Ontology resources and define agent instructions to support enterprise-specific queries.
-
-**3. Deploy Azure and Foundry Components**
-
-- Provision Azure resources including Foundry project, AI services,
-  search, storage, and app services.
-
-- Deploy supporting components through Azure Developer CLI (azd).
-
-**4. Connect the Fabric Data Agent to Microsoft Foundry**
-
-- Create or configure an AI agent within Foundry.
-
-- Link the agent to Microsoft Fabric using Workspace ID and AI Skills
-  ID.
-
-- Provide domain-specific instructions enabling the agent to interpret
-  and analyze Fabric data.
-
-**5. Enable Conversational Analytics and Automated Insights**
-
-- Test the agent in Foundry Playground with real business queries.
-
-- Demonstrate natural language–to–data retrieval workflows using Fabric
-  Lakehouse datasets.
-
-- Deliver insights such as inspection pass/fail rates, averages, trends,
-  and grouped summaries.
-
-**6. Showcase End-to-End Agentic Application Workflow**
-
-- Integrate Foundry agent, Fabric data source, and Azure infrastructure
-  into a functional web application.
-
-- Validate intelligent data interactions, automated reasoning, and
-  insight generation.
-
-**Solution architecture**
+## Architecture Diagram
 
 ![Architecture Diagram](./media/image1.png)
 
 The solution combines Microsoft Fabric and Microsoft Foundry to create
 an AI solution that can answer questions using both structured data and
 unstructured documents:
+
+## Explanation of components:
 
 - **Microsoft Fabric** provides the data layer with Lakehouse,
   Warehouse, and the Fabric IQ semantic layer for natural language to
@@ -195,10 +158,9 @@ reports.
 
     ![](./media/.png)
 
-## Task 2: Retrieve your Fabric workspace ID
+## Task 2: Retrieve the Fabric Workspace ID and Set Up the Development Environment
 
-In this task, you will need your workspace ID to pass as a parameter when building the
-solution.
+In this task, you will open the development environment, begin working on the required components, and use your workspace ID as a parameter while building the solution.
 
 1. Look at the URL - the workspace ID is the GUID that appears after /groups/:
 
@@ -206,12 +168,7 @@ solution.
 
     ![](./media/workspace-id.png)
 
-
-## Task 3: Open development environment
-
-In this task, you will open the development environment and begin working on the required components.
-
-1. Open your browser, navigate to the address bar, type or paste the following URL: 
+3. Open your browser, navigate to the address bar, type or paste the following URL: 
 
     ```
     https://github.com/technofocus-pte/agnticapp-for-unified-data 
@@ -219,17 +176,17 @@ In this task, you will open the development environment and begin working on the
 
     ![](./media/image13.png)
 
-2. Click on **fork** to fork the repo.Give unique name to the repo and click on **Create repo** button.
+4. Click on **fork** to fork the repo.Give unique name to the repo and click on **Create repo** button.
 
     ![](./media/image14.png)
 
     ![](./media/image15.png)
 
-3. Click on **Code -\Codespaces -\Create Codespace on main**
+5. Click on **Code -\Codespaces -\Create Codespace on main**
 
     ![](./media/image16.png)
 
-4. Wait for the Codespaces environment to setup. It takes few minutes to setup completely
+6. Wait for the Codespaces environment to setup. It takes few minutes to setup completely
 
     ![](./media/image17.png) 
 
@@ -237,7 +194,7 @@ In this task, you will open the development environment and begin working on the
 
     ![](./media/image19.png)
 
-## Task 4: Provision services and deploy the application to Azure and Fabric
+## Task 3: Provision services and deploy the application to Azure and Fabric
 
 In this task, you will provision the required services and deploy the application to Azure and Fabric.
 
@@ -365,7 +322,7 @@ In this task, you will provision the required services and deploy the applicatio
 
     ![](./media/image46.png)
 
-## Task 5: Review the Fabric Lakehouse and Data
+## Task 4: Review the Fabric Lakehouse and Data
 
 In this task, you will review the Fabric Lakehouse and data to understand its structure and contents.
 
@@ -383,7 +340,7 @@ In this task, you will review the Fabric Lakehouse and data to understand its st
 
 4. Return to the **Codespace** to test the agent.
 
-## Task 6: Test the agent
+## Task 5: Test the agent
 
 In this task, you will test the agent to validate its functionality and responses.
 
@@ -423,7 +380,7 @@ In this task, you will test the agent to validate its functionality and response
 
     ![](./media/image56.png)
 
-## Task 7: Create a Fabric data agent
+## Task 6: Create a Fabric data agent
 
 In this task, you will create a Fabric Data Agent and configure it for use with your data.
 
@@ -503,7 +460,7 @@ In this task, you will create a Fabric Data Agent and configure it for use with 
 
 7. Return to the **Codespace** to deploy and launch the application.
 
-## Task 8: Deploy and launch the application
+## Task 7: Deploy and launch the application
 
 In this task, you will deploy and launch the application to validate its functionality.
 
@@ -567,7 +524,7 @@ In this task, you will deploy and launch the application to validate its functio
 
         ![](./media/image88.png)
 
-## Task 9: Verify Azure Resources and Review Fabric Lakehouse Data 
+## Task 8: Verify Azure Resources and Review Fabric Lakehouse Data 
 
 In this task, you will verify the deployed Azure resources and review the Fabric Lakehouse data.
 
@@ -597,7 +554,7 @@ In this task, you will verify the deployed Azure resources and review the Fabric
 
         ![](./media/image91.png)
 
-## Task 10: Consume Fabric data agent from Microsoft Foundry Services
+## Task 9: Consume Fabric data agent from Microsoft Foundry Services
 
 In this task, you will consume the Fabric Data Agent from Microsoft Foundry Services and interact with it programmatically.
 
@@ -723,3 +680,6 @@ on a unified data platform can simplify data access, accelerate
 analytics, and support faster, data-driven decision-making for both
 technical and non-technical users.
 
+### You have successfully completed the lab. Click on Next >> to proceed with the next lab.
+
+![Start Your Azure Journey](../masterdoc/media/next.jpg)
