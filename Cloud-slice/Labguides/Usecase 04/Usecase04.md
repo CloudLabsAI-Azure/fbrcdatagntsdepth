@@ -354,7 +354,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     ![](./media/image62.png)
 
-    ![](./media/image63.png)
+    ![](../masterdoc/media/odlusr.png)
 
     ![](./media/image64.png)
 
@@ -364,9 +364,9 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     - Click to select it
 
-        ![](./media/image65.png)
+        ![](../masterdoc/media/odlusr.png)
 
-6. Enter the **agent name** as **DataAgent-  <inject key="DeploymentID" enableCopy="false"></inject>**,verify the **connection**, and then click **Add and configure** to proceed with the agent setup.
+6. Enter the **Agent name** as **DataAgent-  <inject key="DeploymentID" enableCopy="false"></inject>**,verify the **connection**, and then click **Add and configure** to proceed with the agent setup.
 
     ![](./media/image66.png)
 
@@ -455,27 +455,23 @@ In this exercise, you will publish the Copilot agent to Teams, enabling business
 
     ![](./media/image87.png)
 
-6. Click **Sing in**
+6. Click **Sign in**
 
     ![](./media/image88.png)
 
-7. Enter your provided credentials to sign in and continue
+7. Enter the credentials to sign in and continue
+ 
+    - **Email/Username:** <inject key="AzureAdUserEmail"></inject>
 
-    ![](./media/image89.png)
+    - **Password:** <inject key="AzureAdUserPassword"></inject>
 
-    ![](./media/image90.png)
-
-    ![](./media/image91.png)
-
-    ![](./media/image92.png)
+        ![](./media/image92.png)
 
 8. Click **Add**
 
     ![](./media/image93.png)
 
 9. After the app is added successfully, click the *Open* button to launch the E‑commerce RAG Agent in Microsoft Teams
-
-    ![](./media/image94.png)
 
     ![](./media/image95.png)
 
