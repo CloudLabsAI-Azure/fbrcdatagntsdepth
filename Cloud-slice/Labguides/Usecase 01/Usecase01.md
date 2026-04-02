@@ -580,4 +580,4 @@ In this lab, you learned how to unlock the power of conversational analytics usi
 
 ### You have successfully completed the lab. Click on Next >> to proceed with the next lab.
 
-![Start Your Azure Journey](../masterdoc/media/PageNo.png)
+![Start Your Azure Journey](../masterdoc/media/next.jpg)

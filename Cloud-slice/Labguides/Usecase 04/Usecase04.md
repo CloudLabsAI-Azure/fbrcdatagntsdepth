@@ -106,10 +106,10 @@ queries later.
 
     ![](./media/image12.png)
 
-7. Browse to **C:\LabFiles\C:\LabFiles\lab file** on your VM, then select **customers.csv, Orders_Data.csv** and **products.csv** file and click
-on **Open** button.
+7. Browse to **C:\LabFiles\lab file **(1)**** on your VM, then select **customers.csv, Orders_Data.csv** and **products.csv** **(2)** file and click
+on **Open (3)** button.
 
-    ![](./media/image13.png)
+    ![](./media/labfiles.jpg)
 
 8. Then, click on the **Upload** button and close
 
