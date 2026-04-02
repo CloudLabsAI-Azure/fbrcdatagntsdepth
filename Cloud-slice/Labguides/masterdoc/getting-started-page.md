@@ -8,13 +8,13 @@ Welcome to your Microsoft Fabric: Data agents with Azure Workshop, Let's begin b
 
 Once you're ready to dive in, your virtual machine and **Guide** will be right at your fingertips within your web browser.
 
-![Access Your VM and Lab Guide](./media/guideee.png)
+![Access Your VM and Lab Guide](./media/data-agents-guide.png)
 
 ## Lab Guide Zoom In/Zoom Out
 
 To adjust the zoom level for the environment page, click the **A↕ : 100%** icon located next to the timer in the lab environment.
 
-![](./media/zum.png)
+![](./media/Zoom-in.jpg)
 
 ## Virtual Machine & Lab Guide
 
@@ -79,6 +79,6 @@ Learner Support Contacts:
 
 Click **Next** from the bottom right corner to embark on your Lab journey!
 
-![Start Your Azure Journey](./media/PageNo.png)
+![Start Your Azure Journey](./media/next.jpg)
 
 Now you're all set to explore the powerful world of technology. Feel free to reach out if you have any questions along the way. Enjoy your workshop!
