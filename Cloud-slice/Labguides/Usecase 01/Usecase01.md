@@ -55,7 +55,7 @@ throughout the use case.
 
 2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
 
-    - **Email/Username** : <inject key="AzureAdUserPassword"></inject> 
+    - **Email/Username** : <inject key="AzureAdUserEmail"></inject> 
 
         ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image7.png)
@@ -73,7 +73,7 @@ be incorrect.](./media/image8.png)
 
     ![](./media/image9.png)
 
-6. Fabric home page, select **+New workspace** tile.
+6. On the Fabric home page, select **+New workspace** tile.
 
     ![](./media/image10.png)
 
