@@ -47,50 +47,62 @@ Fabric workspace that will host the Lakehouse, notebooks, and the Data
 Agent. This workspace acts as the central container for all assets used
 throughout the use case.
 
-1. Open your web browser and go to the address bar. Type or paste the provided URL, then press **Enter** to proceed.
+1. On your virtual machine, open the **Microsoft Edge**.
+ 
+    ![01](./media/gs1.png)
+ 
+1. In the new tab, navigate to the **Microsoft Fabric** portal by copying and pasting the following URL into the address bar.
 
-    ```
-    https://app.fabric.microsoft.com  
-    ```
+      ```
+      https://app.fabric.microsoft.com
+      ```
 
-2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
+1. On the **Enter your email, we'll check if you need to create a new account** tab, you will see the login screen, in that enter the following email/username, and click on **Submit (2)**.
 
-    - **Email/Username** : <inject key="AzureAdUserEmail"></inject> 
+   - **Email/Username:** <inject key="AzureAdUserEmail"></inject> **(1)**
+ 
+       ![01](./media/uc1-0.png)
+ 
+1. Next, provide your Temporary Access Password **(1)** and click on **Sign in (2)**:
+ 
+   - **Temprory Access Pass:** <inject key="AzureAdUserPassword"></inject>
+ 
+       ![01](./media/new-9.png)
 
-        ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image7.png)
+1. If you see the pop-up Stay Signed in?, select **No**.
+   
+    ![01](./media/gs2.png)
 
-3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
+1. On Microsoft Fabric (Free) license assignment dialog appears, click **OK** to proceed.
 
-   - **Password**  : <inject key="AzureAdUserPassword"></inject>
+    ![01](./media/gs3.png)
 
-        ![A login screen with a red box and blue text AI-generated content may
-be incorrect.](./media/image8.png)
+1. When the **Welcome to the Fabric view** dialog appears, click **Cancel**.   
 
-4. In **Stay signed in?** window, click on the **Yes** button.
+    ![01](./media/gs4.png)
 
-5. You’ll be directed to Power BI Home page.
+1. You will be navigated to the **Microsoft Fabric Home page**.
 
-    ![](./media/image9.png)
+    ![01](./media/gs5.png)
 
-6. On the Fabric home page, select **+New workspace** tile.
+1. On the Microsoft **Fabric Home Page**, click **+ New workspace** to create a new workspace.
 
-    ![](./media/image10.png)
+    ![01](./media/uc1-1.png)
 
-7. In the **Create a workspace** pane that appears on the right side, enter the following details, and click on the **Apply** button.
+1. In the **Create a workspace** pane that appears on the right side, enter the following details, and click on the **Apply (5)** button.
 
     | Property | Value |
-    |---------|-------|
-    | Name | **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject>**|
-    | Advanced | Under **License mode**, select **Fabric** |
-    | Default storage format | Small dataset storage format |
-    | Template apps | Check **Develop template apps** |
+    |----|---|
+    |Name	| Enter **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject> (1)**  |
+    |Workspace type |	Select **Fabric (2)** |
+    |Details |under Details you must see fabric capacity selected **(3)**|
+    |Semantic model storage format|	Select **Small semantic model storage format (4)** |
 
-    ![](./media/image11.png)
+    ![](./media/new20.png)
 
-    ![](./media/image13.png)
+    ![](./media/new21.png)
 
-8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
+1. Wait for the deployment to complete. It takes 1-2 minutes to complete.
 
     ![](./media/image14.png)
 
@@ -98,35 +110,33 @@ be incorrect.](./media/image8.png)
 
 In this task, you will create a new Lakehouse and populate it with AdventureWorks tables using a Fabric notebook, establishing a structured data foundation that the Data Agent can query.
 
-1. Create a new lakehouse by clicking on the **+New item** button in the navigation bar.
+1. In the workspace home page, click on the **+New item** button in the navigation bar t create a new lakehouse.
 
     ![](./media/image15.png)
 
-2. Click on the "**Lakehouse**" tile.
+1. In the **New item** window, search for **Lakehouse (1)** in the search bar and select **Lakehouse (2)** from the results to create a new Lakehouse item.
 
-    ![](./media/image16.png)
+    ![](./media/uc1-6.png)
 
-3. In the **New lakehouse** dialog box, enter the following name in the **Name** field:
+1. In the **New lakehouse** dialog box, enter the following name in the **Name** field:
 
-    ```
-    AdventureWorksLH
-    ```
-
-    Then, click **Create** and open the newly created lakehouse.
+1. In the **New lakehouse** dialog box, enter **AdventureWorksLH (1)** in the **Name** field, and leave **Lakehouse schemas (2)** unchecked. Click **Create (3)** to proceed.
 
     ![](./media/image17.png)
 
     ![](./media/image18.png)
 
-4. You will see a notification stating **Successfully created SQL endpoint**.
+1. You will see a notification stating **Successfully created SQL endpoint**.
 
     ![](./media/image19.png)
 
-5. Click on **Open notebook**, then from the dropdown menu select **New notebook** in the lakehouse where you want to create your Fabric data agent.
+1. In the **Lakehouse** page, click **Open notebook (1)** and select **New notebook (2)** to create your Fabric data agent.
 
     ![](./media/image20.png)
 
-6. Update the code in the **cell** with the following code and click on **▷ Run cell** that appears to the left of the cell.
+1. In your notebook, use the **+ Code (1)** icon to add a new code cell to the notebook.
+
+1. Enter the following code in the cell **(2)**. Select the code cell and click on the **Run cell (3)** button to execute cell. Monitor the **Spark job progress and completion status** in the output section to ensure all tables are successfully uploaded to the Lakehouse.
 
     ```
     import pandas as pd
@@ -146,17 +156,13 @@ In this task, you will create a new Lakehouse and populate it with AdventureWork
         spark.createDataFrame(df).write.mode('overwrite').saveAsTable(table)
     ```
 
-    ![](./media/image21.png)
+    ![](./media/new1.png)
 
-    ![](./media/image22.png)
+    > **Note:** Wait until the progress reaches 100%.    
 
-    ![](./media/image23.png)
+1. Expand the **AdventureWorksLH (1)** Lakehouse , expand the **Tables (2)** folder, click on the **ellipsis (⋯) (3)** next to Tables, and select **Refresh (4)** to load and verify that all newly created tables are successfully loaded into the Lakehouse.
 
-    ![](./media/image24.png)
-
-    ![](./media/image25.png)
-
-    > **Note:** Wait until the progress reaches 100%.
+    ![](./media/new2.png)
 
 ## Task 3: Create and configure a Fabric Data Agent connected to Lakehouse tables.
 
@@ -165,34 +171,30 @@ Lakehouse. You will select the required Dimension and Fact tables to
 enable the agent to answer a wide range of sales‑related analytics
 questions.
 
-1. Now, click on **Fabric Data agent- <inject key="DeploymentID" enableCopy="false"></inject>** on the left-sided navigation pane.
+1. Now, click on **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject> (1)** on the left-sided navigation pane, then select the **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject> (2)** workspace to open and see the items created.
 
     ![](./media/image26.png)
 
-2. In the **Fabric** home page, select **+New item.**
+1. In the workspace, Click **+ New item (1)**, search for **Data agent (2)** in the search bar, and select the **Data agent (3)** option to create a new Fabric Data Agent.
 
-    ![](./media/image27.png)
+    ![](./media/new4.png)
 
-3. In the **Filter by item type** search box, enter **data agent (1)** and select the **Data agent (2)**
-
-    ![](./media/data-agent.png)
-
-4. Enter **AI-agent** as the Data agent name and select **Create**.
+1. Enter **AI-agent (1)** as the Data agent name and select **Create (2)**.
 
     ![A screenshot of a computer AI-generated content may be
 incorrect.](./media/image29.png)
 
-5. In AI-agent page, select **Add data (1)** and from the dropdown **choose data source(2)**.
+1. In AI-agent page, select **Add Data (1)** and from the dropdown choose **Data source (2)**.
 
     ![](./media/add-data-source.png)
 
-6. In the **OneLake catalog** tab, select the **AdventureWorksLH (1)** and select **Add (2)**.
+1. In the **OneLake catalog** tab, select the **AdventureWorksLH (1)** and select **Add (2)**.
 
     ![](./media/adventureworks-lh.png)
 
-7. You must then select the tables for which you want the AI skill to have available access.
+1. You must then select the tables for which you want the AI skill to have available access.
 
-    This lab uses these tables:
+    This lab uses the following tables:
 
     - DimCustomer
 
@@ -214,118 +216,91 @@ incorrect.](./media/image29.png)
 
     - FactResellerSales
 
-        ![](./media/image34.png)
+       ![](./media/image34.png)
 
 ## Task 4: Improve the agent’s responses using instructions and example queries.
 
 In this task, you will enrich the Data Agent by adding natural language questions along with their corresponding SQL queries. These examples help the agent understand domain-specific context and generate more accurate SQL responses for real-world queries. You will add relevant question–SQL pairs, validate their accuracy, test how the agent responds to similar queries, and refine the examples to improve the agent’s performance.
 
 
-1. When you first ask the questions with the listed tables select **factinternetsales**, the data agent answers them fairly well.
-
-2. For instance, for the question :
+1. Select the **factinternetsales (1)** table from the left navigation pane, enter the following prompt **(2)** in Test the agent's responses section:
 
     ```
     What is the most sold product?
     ```
 
-    ![](./media/image35.png)
+1. Expand the execution details by clicking **“1 step completed” (3)**, then expand the query details **(4)**, copy the generated **SQL query (5)** and paste it into the **Notepad** for further use.
 
-    ![](./media/image36.png)
+1. Once the query is copied, click **Clear chat (6)** to reset the conversation for a new prompt.
 
-3. Copy the question and SQL queries and paste them in a notepad and then Save the notepad to use the information in the upcoming tasks.
+    ![](./media/new10.png)
 
-    ![A screenshot of a computer Description automatically
-generated](./media/image37.png)
-
-    ![A screenshot of a computer Description automatically
-generated](./media/image38.png)
-
-4. Select **FactResellerSales** and enter the following text and click on the **Submit icon** as shown in the below image.
+1. Select the **factresellersales (1)** table from the left navigation pane, enter the following prompt **(2)** to Test the agent's responses.
 
     ```
     What is our most sold product?
     ```
 
-    ![A screenshot of a computer Description automatically
-generated](./media/image39.png)
+1. Review the **output (3)** generated, then click **Clear chat (4)** to reset the conversation for a new prompt.
 
     ![A screenshot of a computer Description automatically
-generated](./media/image40.png)
+generated](./media/new9.png)
 
-    As you continue to experiment with queries, you should add more
-instructions.
+1. Select the **dimcustomer (1)** table from the left pane, enter the following prompt **(2)** to Test the agent's responses.
 
-5. Select the **dimcustomer** , enter the following text and click on
-  the **Submit icon**
-    
     ```
     how many active customers did we have June 1st, 2013?
     ```
 
-    ![A screenshot of a computer Description automatically
-generated](./media/image41.png)
+1. Expand the execution details by clicking **“1 step completed” (3)**, review the generated SQL query which counts customers where DateFirstPurchase <= '2013-06-01' to determine active customers by expanding the query section **(4)**, copy the generated **SQL query (5)** and paste it into the **Notepad** for further use. 
+
+1. Once the query is copied, click **Clear chat (6)** to reset the conversation for a new prompt.
 
     ![A screenshot of a computer Description automatically
-generated](./media/image42.png)
+generated](./media/new11.png)
 
-6. Copy the all question and SQL queries and paste them in a notepad and then Save the notepad to use the information in the upcoming tasks.
+    > **Note:** Before running the next prompt, click **Clear chat (6)** to reset the conversation for better results.
 
-    ![A screenshot of a computer Description automatically
- generated](./media/image43.png)
-
-    ![A screenshot of a computer Description automatically
-generated](./media/image44.png)
-
-7. Select the **dimdate**, **FactInternetSales** , enter the following
-  text and click on the **Submit icon:**
+1. Select the **dimdate (1)** and **factinternetsales (2)** tables from the left pane, enter the following prompt **(3)** to Test the agent's responses.
 
     ```
     what are the monthly sales trends for the last year?
     ```
 
+1. Expand the execution details by clicking **“1 step completed” (4)**,  and expand the query details **(5)** further where the SQL joins the tables, aggregates monthly sales, and filters for the latest year. Copy the generated **SQL query (6)** and paste it into the **Notepad** for further use. 
+
     ![A screenshot of a computer AI-generated content may be
-incorrect.](./media/image45.png)
+incorrect.](./media/new12.png)
 
-    ![A screenshot of a computer Description automatically
- generated](./media/image46.png)
+    > **Note:** Before running the next prompt, click **Clear chat (6)** to reset the conversation for better results.
 
-8. Select the **dimproduct**,**FactInternetSales** , enter the
-  following text and click on the **Submit icon:**
+1. Select the **dimproduct (1)** and **factinternetsales (2)** tablesfrom the left pane, enter the following prompt **(3)** to Test the agent's responses.
    
     ```
     which product category had the highest average sales price?
     ```
 
-    ![A screenshot of a computer Description automatically
- generated](./media/image47.png)
+1. Expand the execution details by clicking **“1 step completed” (4)**,  and expand the query details **(5)** further where the review shows the category with the highest average sales price. Copy the generated **SQL query (6)** and paste it into the **Notepad** for further use.
 
     ![A screenshot of a computer Description automatically
-generated](./media/image48.png)
+ generated](./media/new13.png)
 
-    >Note: Part of the problem is that "active customer" doesn't have a formal
-    definition. More instructions in the notes to the model text box might
-    help, but users might frequently ask this question. You need to make
-    sure that the AI handles the question correctly.
-
-7. The relevant query is moderately complex, so provide an example by selecting the **Example queries** button from the **Setup** pane.
+1. The relevant query is moderately complex, so provide an example by selecting the **Example queries (2)** button from the **Setup (1)** pane.
 
     ![](./media/image49.png)
 
-8. In the Example queries tab, select the **Add example.**
+1. In the **Example queries (1)** tab, select the **Add example (2).**
 
     ![](./media/image50.png)
 
-9. Here, you should add Example queries for the lakehouse data source
-  that you have created. Add the below question in the question field:
+1. Here, you should add Example queries for the lakehouse data source
+  that you have created. Add the **below question (1)** in the question field:
     
     ```
     What is the most sold product?
     ```
 
-    ![](./media/image51.png)
-
-10. Add the query1 that you have saved in the notepad:
+1. For **SQL query (2)** either add the query1 that you have saved in the notepad or add the following query:
 
     ```
     SELECT TOP 1 ProductKey, SUM(OrderQuantity) AS TotalQuantitySold
@@ -334,21 +309,15 @@ generated](./media/image48.png)
     ORDER BY TotalQuantitySold DESC
     ```
 
-    ![](./media/image52.png)
+    ![](./media/new14.png)
 
-11. To add a new query field, click on **+Add.**
-
-    ![](./media/image53.png)
-
-12. To add a second question in the question field:
+1. To add a new query field, click on **+ Add (1).** Add the **below question (2)** in the question field:
 
     ```
     What are the monthly sales trends for the last year?
     ```
 
-    ![](./media/image54.png)
-
-13. Add the query3 that you have saved in the notepad:
+1. For **SQL query (3)** either add the query2 that you have saved in the notepad or add the following query:
 
     ```
     SELECT
@@ -373,21 +342,15 @@ generated](./media/image48.png)
     d.MonthNumberOfYear
     ```
 
-    ![](./media/image55.png)
+    ![](./media/new15.png)
 
-14. To add a new query field, click on **+Add.**
-
-    ![](./media/image56.png)
-
-15. To add a third question in the question field:
+1. To add a new query field, click on **+ Add (1).** Add the **below question (2)** in the question field:
 
     ```
     Which product category has the highest average sales price? 
     ```
 
-    ![](./media/image57.png)
-
-16. Add the query4 that you have saved in the notepad:
+1. For **SQL query (3)** either add the query3 that you have saved in the notepad or add the following query:
 
     ```
     SELECT TOP 1
@@ -403,28 +366,23 @@ generated](./media/image48.png)
     AverageSalesPrice DESC
     ```
 
-    ![](./media/image58.png)
+1. Once all the questions and SQL queries are added, then click on **Export all (4)** to export the examples.
 
-17. Add all the queries and SQL queries that you have saved in Notepad,
-  and then click on ‘**Export all’**
+    ![](./media/new16.png)
 
-    ![](./media/image59.png)
-
-    ![](./media/image60.png)
+    ![](./media/new17.png)
 
 ## Task 5: Publish the agent and test it programmatically via API calls inside a Fabric notebook.
 
 In this task, you will validate and enhance the Data Agent by reviewing its instructions and examples, and by using the AI skill programmatically within a Fabric notebook. You will check whether the AI skill is properly configured and confirm that a published URL is available. You will then use the AI skill within a Fabric notebook to test responses using sample queries, and refine the instructions and examples based on the results to improve its overall effectiveness.
 
-1. In the Data agent Fabric page, in the **Home** ribbon select the **Settings**.
+1. In the Data agent Fabric page, in the **Home** ribbon select the **Settings gear icon**.
 
    ![](./media/image61.png)
 
-1. Before you publish the AI skill, it doesn't have a published URL value, as shown in this screenshot.
+1. Before you publish the AI-agent, navigate to **Publishing (1)** section, and verify it doesn't have a **published URL** value, click **X (2)** to close the AI-agent settings pane.
 
-1. Close the AI Skill setting.
-
-   ![](./media/image62.png)
+   ![](./media/new18.png)
 
 1. In the **Home** ribbon, select the **Publish**.
 
@@ -432,31 +390,35 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
  
    ![](./media/image64.png)
 
-1. Click on the **View publishing details**
+1. Click on the **View publishing details.**
 
    ![](./media/image65.png)
 
-1. The published URL for the AI agent appears, as shown in this screenshot.
+1. In the Data agent Fabric page, in the **Home** ribbon select the **Settings gear icon**.
 
-1. Copy the URL and paste that in a notepad and then Save the notepad to use the information in the upcoming steps.
+   ![](./media/image61.png)
 
-   ![](./media/image66.png)
+1. Navigate to **Publishing (1)** section, and copy the **published URL (2)** value and paste it into the Notepad for further use, then click **X (3)** to close the AI-agent settings pane.
 
-1. Select **Notebook1** in the left navigation pane.
+   ![](./media/new19.png)
 
-   ![](./media/image67.png)
+1. Navigate to the **Fabric Data agent-<inject key="DeploymentID" enableCopy="false"></inject> (1)** workspace and select **Notebook 1 (2)** to open the notebook for further analysis or execution.
 
-1. Use the **+ Code** icon below the cell output to add a new code cell to the notebook, enter the following code in it and replace the **URL**. Click on **▷ Run** button and review the output
+   ![](./media/new-21.png)
+
+1. In your notebook, use the **+ Code (1)** icon below the output of last cell to add a new code cell to the notebook.
+
+1. Enter the following code in the cell **(2)**. Select the code cell and click on the **Run cell (3)** button to execute cell. As an Output this code will install the required OpenAI package.
 
    ```
    %pip install "openai==1.70.0" 
    ```
 
-   ![](./media/image68.png)
- 
-   ![](./media/image69.png)
+   ![](./media/new22.png)
 
-1. Use the **+ Code** icon below the cell output to add a new code cell to the notebook, enter the following code in it and replace the **URL**. Click on **▷ Run** button and review the output
+1. In your notebook, use the **+ Code** icon below the output of last cell to add a new code cell to the notebook.
+
+1. Enter the following code in the cell **(1)**. Select the code cell and click on the **Run cell (2)** button to execute cell.
 
    ```
    %pip install httpx==0.27.2 
@@ -464,7 +426,9 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
 
    ![](./media/image70.png)
 
-1. Use the **+ Code** icon below the cell output to add a new code cell to the notebook. Enter the following code in the new cell and replace the **URL** as required. Then, click on the **▷ Run** button and review the output.
+1. In your notebook, use the **+ Code** icon below the output of last cell to add a new code cell to the notebook.
+
+1. Enter the following code in the cell and replace the **URL** with **Published URL** which you copied in the **Task 5 Step 6**, then select the code cell and click on the **Run cell (3)** button to execute cell.
 
    ```
    import requests
@@ -570,9 +534,9 @@ In this task, you will validate and enhance the Data Agent by reviewing its inst
    fabric_client.beta.threads.delete(thread_id=thread.id)
    ```
    
-   ![](./media/image71.png)
+   ![](./media/new23.png)
 
-   ![](./media/image72.png)
+   ![](./media/new24.png)
 
 ## Summary:
 
