@@ -152,7 +152,7 @@ reports.
 
     ![](./media/workspace.png)
 
-    ![](./media/workspace-01.png)
+    ![](./media/apply00.jpg)
 
 8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
 
@@ -186,11 +186,7 @@ In this task, you will open the development environment, begin working on the re
 
 6. Wait for the Codespaces environment to setup. It takes few minutes to setup completely
 
-    ![](./media/image17.png) 
-
     ![](./media/image18.png)
-
-    ![](./media/image19.png)
 
 ## Task 3: Provision services and deploy the application to Azure and Fabric
 
@@ -211,8 +207,6 @@ In this task, you will provision the required services and deploy the applicatio
     ![](./media/pickanaccount.png)
 
     ![](./media/continue.png)
-
-    ![](./media/image24.png)
 
 3. Login to Azure:
 
@@ -248,18 +242,15 @@ In this task, you will provision the required services and deploy the applicatio
 
 8. Select the following values to create an environment for Azure resources:
 
-    - **Environment**: **Fabricagent<inject key="DeploymentID" enableCopy="false"></inject>** 
-    - **Azure Subscription:** Select the **default subscription**  
-    - **AIservice:** Select **Sweden Central**  
-    - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  
-    - **Resource Group:** Enter **lab-vm**
+    - **Environment name**: **Fabricagent<inject key="DeploymentID" enableCopy="false"></inject>** **(1)**
+    - **Azure Subscription:** Select the **default subscription**  **(2)**
+    - **AIservice:** Select **Sweden Central** Use the arrow keys to make selection. **(3)**
+    - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  **(4)**
+    - **Resource Group:** Enter **lab-vm** **(5)**
 
-        ![](./media/image30.png)
+        ![](./media/fabric-datagent.jpg)
 
-        ![](./media/image31.png)
-
-        ![](./media/lab-vm.png)
-
+    
         > **Note:** If you are unable to deploy the AI service in **Sweden Central**, you can use any of the following regions: **australiaeast**, **eastus**, **eastus2**, **francecentral**, **japaneast**, **swedencentral**, **uksouth**, **westus**, **westus3**.
 
         >Note: This deployment will take *7-10 minutes* to provision the resources in your account and set up the solution with sample data.
@@ -280,15 +271,11 @@ In this task, you will provision the required services and deploy the applicatio
 
     ![](./media/image35.png)
 
-    ![](./media/image36.png)
-
 13. Run the following command in the terminal to install the required Python dependencies
 
     ```
     pip install uv && uv pip install -r scripts/requirements.txt 
     ```
-
-    ![](./media/image37.png)
 
     ![](./media/image38.png)
 
@@ -316,11 +303,7 @@ In this task, you will provision the required services and deploy the applicatio
 
     ![](./media/image43.png)
 
-17. Press Enter to start create resources
-
-    ![](./media/image44.png)
-
-    ![](./media/image45.png)
+17. Press **Enter** to start create resources
 
     ![](./media/image46.png)
 
@@ -374,8 +357,6 @@ In this task, you will test the agent to validate its functionality and response
     Do any inspections violate quality control standards in our Inspection Procedures? 
     ```
 
-    ![](./media/image54.png)
-
     ![](./media/image55.png)
 
 3. Press **Ctrl+C** to cancel the process.
@@ -418,7 +399,7 @@ In this task, you will create a Fabric Data Agent and configure it for use with 
 
     ![](./media/image64.png)
 
-8. Click Publish from the top menu and select Publish.
+8. Click **Publish** from the top menu and select **Publish**.
 
     ![](./media/image65.png)
 
@@ -442,8 +423,6 @@ In this task, you will create a Fabric Data Agent and configure it for use with 
     What is the average score from inspections?
     ``` 
 
-    ![](./media/image70.png)
-
     ![](./media/image71.png)
 
     ![](./media/image72.png)
@@ -451,8 +430,6 @@ In this task, you will create a Fabric Data Agent and configure it for use with 
     ```
     Show tickets grouped by status
     ```
-
-    ![](./media/image73.png)
 
     ![](./media/image74.png)
 
@@ -515,14 +492,14 @@ In this task, you will deploy and launch the application to validate its functio
     - For Retail sales analysis use case:
 
         ```
-        Show total revenue by year for last 5 years.
+        what is the average score from inspections
         ```
-
-        ![](./media/image85.png)
 
         ![](./media/image86.png)
 
-        ![](./media/image87.png)
+        ```
+        Do any inspections viloate quality control standards in our insecption Procedures?
+        ```
 
         ![](./media/image88.png)
 
