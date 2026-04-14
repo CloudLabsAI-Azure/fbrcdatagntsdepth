@@ -361,7 +361,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     ![](./media/image61.png)
 
-4. Click **Create** and sign in using the same account used for this lab
+4. Click **Create** and choose the **odl_user**
 
     ![](./media/image62.png)
 
@@ -371,11 +371,9 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
 5. Select your Fabric Data Agent
 
-    - Look for the agent name you created in Exercise \#1\ Task 3
+    - Look for the agent name you created in Exercise 1\ Task 3
 
     - Click to select it.
-
-        ![](../masterdoc/media/odlusr.png)
 
 6. Enter the **Agent name** as **DataAgent- <inject key="DeploymentID" enableCopy="false"></inject>**,verify the **connection**, and then click **Add and configure** to proceed with the agent setup.
 
