@@ -136,11 +136,19 @@ and click on **Load Table**, then select **New table**.
 
     ![](./media/image20.png)
 
+13. Click on **Load** by keeping **New table name** as **customers**
+
     ![](./media/image21.png)
 
-    ![](./media/image22.png)
+ 14. Click on the horizontal ellipses (…) beside **customers.csv** 
+
+        ![](./media/image22.png)
+
+15. Navigate and click on **Load Table**, then select  New table
 
     ![](./media/image23.png)
+
+16. Click on **Load** by keeping New table name as **products**
 
     ![](./media/image24.png)
 
@@ -154,7 +162,7 @@ and click on **Load Table**, then select **New table**.
 
     ![](./media/image27.png)
 
-16. In the **New semantic model** dialog enter  **E-commerce Order Dataset**  and then select the **all** tables from the list of tables and select **Confirm** to create the new model.
+16. In the **New semantic model** dialog enter  **E-commerce Dataset Report**  and then select the **all** tables from the list of tables and select **Confirm** to create the new model.
 
     ![](./media/image28.png)
 
@@ -168,7 +176,9 @@ and click on **Load Table**, then select **New table**.
 
     ![](./media/image30.png)
 
-2. Provide a name as <DataAgent_  <inject key="DeploymentID" enableCopy="false"></inject>  and click **Create**
+2. Click on **Skip for now**
+
+2. Provide a name as **DataAgent_<inject key="DeploymentID" enableCopy="false"></inject>** and click **Create**
 
     ![](./media/image31.png)
 
@@ -184,7 +194,11 @@ and click on **Load Table**, then select **New table**.
 
 5. When you first ask the questions with the listed tables select **all tables** the data agent answers them fairly well.
 
-6. For instance, for the question  **Who are the top 10 customers by total purchase amount?** 
+6. For instance, for the question.
+
+    ```
+    Who are the top 10 customers by total purchase amount? 
+    ```
 
     ![](./media/image35.png)
 
@@ -193,8 +207,6 @@ and click on **Load Table**, then select **New table**.
     ```
     Which day has the highest sales?
     ``` 
-
-    ![](./media/image36.png)
 
     ![](./media/image37.png)
 
@@ -249,15 +261,11 @@ prompt as per the values below **OR** paste these in the Test:
     How many orders are placed each day? 
     ```
 
-    ![](./media/image41.png)
-
     ![](./media/image42.png)
 
     ```
     Which products have the lowest stock levels? 
     ```
-
-    ![](./media/image43.png)
 
     ![](./media/image44.png)
 
@@ -296,13 +304,15 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
     https://copilotstudio.microsoft.com/
     ```
 
-    ![](./media/image48.png)
+    ![](./media/get-started.png)
+
+    ![](./media/skip.png)
 
 2. In the left navigation, select **Agents**
 
     ![](./media/image49.png)
 
-3. Click the blue **+Create blank agent** button.
+3. Click the blue **+ Create blank** agent button and fill the name as **E-commerce RAG Agent** and click on **create**.
 
     ![](./media/image50.png)
 
@@ -347,7 +357,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     ![](./media/image60.png)
 
-3. If it say's *Connection : Not connected* then click the drop down next to *Not connected* and select **Create new connection**. Verify it's showing as the email for your account, then click **Next**.
+3. If it say's **Connection : Not connected* then click the drop down next to *Not connected** and select **Create new connection**. Verify it's showing as the email for your account, then click **Next**.
 
     ![](./media/image61.png)
 
@@ -361,13 +371,13 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
 5. Select your Fabric Data Agent
 
-    - Look for the agent name you created in Exercise \#1\  Task 3
+    - Look for the agent name you created in Exercise \#1\ Task 3
 
-    - Click to select it
+    - Click to select it.
 
         ![](../masterdoc/media/odlusr.png)
 
-6. Enter the **Agent name** as **DataAgent-  <inject key="DeploymentID" enableCopy="false"></inject>**,verify the **connection**, and then click **Add and configure** to proceed with the agent setup.
+6. Enter the **Agent name** as **DataAgent- <inject key="DeploymentID" enableCopy="false"></inject>**,verify the **connection**, and then click **Add and configure** to proceed with the agent setup.
 
     ![](./media/image66.png)
 
@@ -375,7 +385,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     ![](./media/image67.png)
 
-    ![](./media/image68.png)
+    ![](./media/publish-ss.png)
 
     ![](./media/image69.png)
 
@@ -399,8 +409,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     ![](./media/image74.png)
 
-    >**Note:** The response generation process may take **5–6 minutes** to
-complete.
+    >**Note:** In case it takes more than 5-6 minutes to complete open a new test session and try again. Since the feature is in preview, it may not always work as expected.
 
     ```
     What is the average price per category? 
@@ -472,9 +481,9 @@ In this exercise, you will publish the Copilot agent to Teams, enabling business
 
     ![](./media/image93.png)
 
-9. After the app is added successfully, click the *Open* button to launch the E‑commerce RAG Agent in Microsoft Teams
+9. After the app is added successfully, click the **Open** button to launch the E‑commerce RAG Agent in Microsoft Teams
 
-    ![](./media/image95.png)
+    ![](./media/ragagent.png)
 
 ## Task 2: Testing the connected Fabric Data Agent
 
@@ -484,31 +493,25 @@ In this exercise, you will publish the Copilot agent to Teams, enabling business
    What is the revenue trend over time?
    ``` 
  
-    ![](./media/image96.png)
+    ![](./media/over-time.png)
 
 2. Click **Allow** to grant the required permissions
 
-    ![](./media/image97.png)
-    
-    ![](./media/image98.png)
+    ![](./media/allow.png)
   
     ```
     What are the top 10 highest value orders? 
     ```
 
-    ![](./media/image99.png)
-
-    ![](./media/image100.png)
+    ![](./media/value-orders.png)
 
     ```
     Which payment method is used the most?
     ``` 
 
-    ![](./media/image101.png)
+    ![](./media/used-most.png)
 
-    ![](./media/image102.png)
-
-**Summary**
+# Summary
 
 This use case focuses on how an e‑commerce organization can integrate
 **Microsoft Fabric Data Agents** with **Microsoft Teams** through
