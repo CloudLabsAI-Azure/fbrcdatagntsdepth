@@ -316,7 +316,7 @@ This exercise focuses on enabling Copilot Studio to communicate with the Fabric 
 
     ![](./media/image50.png)
 
-    ![](./media/image51.png)
+    ![](./media/E-commercerag.png)
 
 4. Click **Edit** to modify the settings.
 
