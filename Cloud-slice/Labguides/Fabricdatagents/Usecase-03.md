@@ -1,0 +1,664 @@
+# Usecase 03- Connect Fabric Data Agent to Microsoft Foundry for unified and intelligent data insights
+
+## Introduction
+
+Modern organizations generate large volumes of data across multiple
+systems, making it difficult for business users and analysts to access
+insights quickly. Data is often stored in silos, requiring technical
+expertise to extract, analyze, and interpret information.
+
+The Microsoft Fabric unified data platform addresses this challenge by
+bringing together analytics, data engineering, and business intelligence
+capabilities into a single environment. By integrating agent-based AI
+capabilities from Azure AI Foundry, organizations can build intelligent
+applications that interact with enterprise data using natural language
+and automated workflows.
+
+The Agentic Applications for Unified Data Foundation Solution
+Accelerator demonstrates how AI-powered agents can leverage unified
+enterprise data to answer questions, automate data analysis, and deliver
+insights to both technical and non-technical users. These agentic
+applications orchestrate tasks, retrieve relevant data, and generate
+contextual responses, enabling faster decision-making and improved
+operational efficiency.
+
+In this use case, organizations can use AI agents to analyze business
+data such as sales performance, customer behavior, and product trends.
+Instead of manually querying multiple datasets, users can simply ask
+questions in natural language and receive actionable insights directly
+from the system.
+
+## Lab Objectives
+
+In this lab, you will complete the following tasks:
+
+- Task 1: Create a Fabric workspace
+- Task 2: Retrieve the Fabric Workspace ID and Set Up the Development Environment
+- Task 3: Provision services and deploy the application to Azure and Fabric
+- Task 4: Review the Fabric Lakehouse and Data
+- Task 5: Test the agent
+- Task 6: Create a Fabric data agent
+- Task 7: Deploy and launch the application
+- Task 8: Verify Azure Resources and Review Fabric Lakehouse Data 
+- Task 9: Consume Fabric data agent from Microsoft Foundry Services
+
+
+## Architecture Diagram
+
+![Architecture Diagram](./media/image1.png)
+
+The solution combines Microsoft Fabric and Microsoft Foundry to create
+an AI solution that can answer questions using both structured data and
+unstructured documents:
+
+## Explanation of components:
+
+- **Microsoft Fabric** provides the data layer with Lakehouse,
+  Warehouse, and the Fabric IQ semantic layer for natural language to
+  SQL translation
+
+- **Microsoft Foundry** hosts the AI agents, including Foundry IQ for
+  document retrieval and the Orchestrator Agent that orchestrates both
+  capabilities
+
+- **Azure AI Services** powers the language models (GPT-4o-mini) and
+  embeddings
+
+- **Azure AI Search** stores document vectors for semantic retrieval
+
+## Prerequisites
+
+- GitHub Account: You are expected to have your own GitHub login credentials.  
+If you do not have an account, please create one by visiting: 
+
+   ``` 
+   https://github.com/signup
+   ```
+
+## Task 0: Create a GitHub account
+
+In this task, you will create a new **Github account** with the same tenant credentials that you have used in this lab.
+
+1. Navigate to the following URL: Then, click on **Sign up** to proceed further.
+
+    ```
+    https://github.com/
+    ```
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image2.png)
+
+2. Enter your personal **Email**, **Password**, and a unique **Username** to create a new GitHub account, then click on **Continue**.
+
+    ![A screenshot of a login box AI-generated content may be
+incorrect.](./media/image3.png)
+
+3. Start the **Verification** **puzzle** by following the instruction on the screen. Click on **Submit.**
+
+4. Enter the **Verification code** you’ve received on your mail.
+
+    ![A screenshot of a email form AI-generated content may be
+incorrect.](./media/image4.png)
+
+5.  Now, with your credentials sign-in to GitHub and click on **Sign in.**
+
+    ![A screenshot of a login page AI-generated content may be
+incorrect.](./media/image5.png)
+
+6. You have successfully created a new account on GitHub.
+
+    ![A screenshot of a computer AI-generated content may be
+incorrect.](./media/image6.png)
+
+## Task 1: Create a Fabric workspace
+
+In this task, you create a Fabric workspace. The workspace contains all
+the items needed for this lakehouse tutorial, which includes lakehouse,
+dataflows, Data Factory pipelines, the notebooks, Power BI datasets, and
+reports.
+
+1. Open your web browser and go to the address bar. Type or paste the provided URL, then press **Enter** to proceed.
+
+    ```
+    https://app.fabric.microsoft.com  
+    ```
+
+2. In the **Microsoft Fabric** window, enter your credentials, and click on the **Submit** button.
+
+    - **Email/Username** : <inject key="AzureAdUserEmail"></inject> 
+
+        ![](../Usecase%2001/media/image7.png)
+
+3. Then, In the **Microsoft** window enter the password and click on the **Sign in** button.
+
+   - **Password**  : <inject key="AzureAdUserPassword"></inject>
+
+        ![](../Usecase%2001/media/image8.png)
+
+4. In **Stay signed in?** window, click on the **Yes** button.
+
+6. Fabric home page, select **+New workspace** tile.
+
+    ![](../Usecase%2001/media/image10.png)
+
+7. In the **Create a workspace** pane that appears on the right side, enter the following details, and click on the **Apply** button.
+
+    | Property | Value |
+    |---------|-------|
+    | Name | **Fabric agent-<inject key="DeploymentID" enableCopy="false"></inject>** **(1)**| 
+    | Advanced | Click on advance **(2)**|
+    | License mode | Select **Fabric** **(3)**|
+    | Capacity | Choose fabric capacity **(4)**|
+    Click on **Apply (5)**   
+
+    ![](./media/workspace.png)
+
+    ![](./media/apply00.jpg)
+
+8. Wait for the deployment to complete. It takes 1-2 minutes to complete.
+
+## Task 2: Retrieve the Fabric Workspace ID and Set Up the Development Environment
+
+In this task, you will open the development environment, begin working on the required components, and use your workspace ID as a parameter while building the solution.
+
+1. Look at the URL - the workspace ID is the GUID that appears after /groups/:
+
+2. Copy the **Workspace ID** from the URL (for example, `https://app.fabric.microsoft.com/groups/{workspace-id}/...`) and save it in **Notepad** for later use.
+
+    ![](./media/workspace-id.png)
+
+3. Open your browser, navigate to the address bar, type or paste the following URL: 
+
+    ```
+    https://github.com/technofocus-pte/agnticapp-for-unified-data 
+    ```
+
+    ![](./media/image13.png)
+
+4. Click on **fork** to fork the repo.Give unique name to the repo and click on **Create repo** button.
+
+    ![](./media/image14.png)
+
+    ![](./media/image15.png)
+
+5. Click on **Code -\Codespaces -\Create Codespace on main**
+
+    ![](./media/image16.png)
+
+6. Wait for the Codespaces environment to setup. It takes few minutes to setup completely
+
+    ![](./media/image18.png)
+
+## Task 3: Provision services and deploy the application to Azure and Fabric
+
+In this task, you will provision the required services and deploy the application to Azure and Fabric.
+
+1. Run the following command on the Terminal. It generates the code to copy. Copy the code and press Enter.
+
+    ```
+    azd auth login
+    ``` 
+
+    ![](./media/image20.png)
+
+2. Default browser opens to enter the generated code to verify. Enter the code and click **Next**.
+
+    ![](./media/image21.png)
+
+    ![](./media/pickanaccount.png)
+
+    ![](./media/continue.png)
+
+3. Login to Azure:
+
+    ```
+    az login 
+    ```
+
+    ![](./media/image25.png)
+
+4. Default browser opens to enter the generated code to verify. Enter the code and click **Next**.
+
+    ![](./media/image26.png)
+
+5. Select the default Azure subscription, leave it as the default option, and press **Enter**.
+
+    ![](./media/image27.png)
+
+6. Register the Microsoft Cognitive Services resource provider (required if not already registered on your subscription)
+
+    ```
+    az provider register --namespace Microsoft.CognitiveServices
+    ``` 
+
+    ![](./media/image28.png)
+
+7. Provision and deploy all the resources:
+
+    ```
+    azd up
+    ``` 
+
+    ![](./media/image29.png)
+
+8. Select the following values to create an environment for Azure resources:
+
+    - **Environment name**: **Fabricagent<inject key="DeploymentID" enableCopy="false"></inject>** **(1)**
+    - **Azure Subscription:** Select the **default subscription**  **(2)**
+    - **AIservice:** Select **Sweden Central** Use the arrow keys to make selection. **(3)**
+    - **Location (infrastructure parameter):** <inject key="Region" enableCopy="false"></inject>  **(4)**
+    - **Resource Group:** Enter **lab-vm** **(5)**
+
+        ![](./media/fabric-datagent.jpg)
+
+    
+        > **Note:** If you are unable to deploy the AI service in **Sweden Central**, you can use any of the following regions: **australiaeast**, **eastus**, **eastus2**, **francecentral**, **japaneast**, **swedencentral**, **uksouth**, **westus**, **westus3**.
+
+        >Note: This deployment will take *7-10 minutes* to provision the resources in your account and set up the solution with sample data.
+
+10. Now the deployment is complete
+
+    ![](./media/image33.png)
+
+11. Create and activate a virtual environment
+
+    ```
+    python -m venv .venv 
+    ```
+
+    ![](./media/image34.png)
+
+12. Use the top-left **menu icon** in **Visual Studio Code**, then navigate to **Terminal → New Terminal** to open a new terminal window in the workspace
+
+    ![](./media/image35.png)
+
+13. Run the following command in the terminal to install the required Python dependencies
+
+    ```
+    pip install uv && uv pip install -r scripts/requirements.txt 
+    ```
+
+    ![](./media/image38.png)
+
+14. Run the following command on the Terminal. It generates the code to copy. Copy the code and press Enter.
+
+    ```
+    az login 
+    ```
+
+    ![](./media/image39.png)
+
+    ![](./media/image40.png)
+
+    ![](./media/image41.png)
+
+15. Select the default Azure subscription and press **Enter** to continue.
+
+    ![](./media/image42.png)
+
+16. Run the bash script from the output of the azd deployment. Replace the with your Fabric workspace Id created in the previous steps. The script will look like the following: 
+
+    ```
+    python scripts/00_build_solution.py --from 02 --fabric-workspace-id <Workspace-id>
+    ```
+
+    ![](./media/image43.png)
+
+17. Press **Enter** to start create resources
+
+    ![](./media/image46.png)
+
+## Task 4: Review the Fabric Lakehouse and Data
+
+In this task, you will review the Fabric Lakehouse and data to understand its structure and contents.
+
+1. Navigate to the workspace in the Fabric portal.
+
+2. Make sure resource got deployed successfully
+
+    ![](./media/image47.png)
+
+3. Click on the **Lakehouse** to verify that the data has been successfully loaded.
+
+    ![](./media/image48.png)
+
+    ![](./media/image49.png)
+
+4. Return to the **Codespace** to test the agent.
+
+## Task 5: Test the agent
+
+In this task, you will test the agent to validate its functionality and responses.
+
+1. To test the agent, run the following command in the terminal.
+
+    ```
+    python scripts/08_test_agent.py 
+    ```
+
+    ![](./media/image50.png)
+
+2. Enter the sample questions: 
+    
+    ```
+    What is the average score from inspections?
+    ```
+
+    ![](./media/image51.png)
+
+    ```
+    What constitutes a failed inspection?
+    ```
+
+    ![](./media/image52.png)
+
+    ![](./media/image53.png)
+
+    ```
+    Do any inspections violate quality control standards in our Inspection Procedures? 
+    ```
+
+    ![](./media/image55.png)
+
+3. Press **Ctrl+C** to cancel the process.
+
+    ![](./media/image56.png)
+
+## Task 6: Create a Fabric data agent
+
+In this task, you will create a Fabric Data Agent and configure it for use with your data.
+
+1. In the Fabric workspace, select **New item (1)**, search for **Data Agent**, and then choose **Data Agent (2)** from the results.
+
+    ![](../Usecase%2002/media/data-agent.png)
+
+2. Provide a name as **FabricDataAgent<inject key="DeploymentID" enableCopy="false"></inject>** **(1)** and click **Create** **(2)**
+
+    ![](./media/fabric-data-agent-new.png)
+
+4. Select **Add data source** to configure a new data source.
+    
+    ![](./media/image59.png)
+
+5. Select **Ontology resource (1)** and click on **Add (2)**.
+
+    ![](./media/image60.png)
+
+    ![](./media/image61.png)
+
+6. Click **Agent instructions** from top menu.
+
+    ![](./media/image62.png)
+
+7. Add the below agent instructions:
+
+    ```
+    You are a helpful assistant that can answer user questions using data. Support group by in GQL 
+    ```
+
+    ![](./media/image63.png)
+
+    ![](./media/image64.png)
+
+8. Click **Publish** from the top menu and select **Publish**.
+
+    ![](./media/image65.png)
+
+    ![](./media/publish-new.png)
+
+    ![](./media/image67.png)
+
+    > Note: The Ontology set up may take up to 15 minutes so retry after some time if you don't see good responses.
+
+5. To test the agent, run the application and enter the sample questions to verify the responses.
+
+    ```
+    How many tickets are high priority
+    ``` 
+
+    ![](./media/image68.png)
+
+    ![](./media/image69.png)
+
+    ```
+    What is the average score from inspections?
+    ``` 
+
+    ![](./media/image71.png)
+
+    ![](./media/image72.png)
+
+    ```
+    Show tickets grouped by status
+    ```
+
+    ![](./media/image74.png)
+
+6. Save the **Workspace ID** and **AISkills ID** in **Notepad** for later use
+
+    ![](./media/image75.png)
+
+7. Return to the **Codespace** to deploy and launch the application.
+
+## Task 7: Deploy and launch the application
+
+In this task, you will deploy and launch the application to validate its functionality.
+
+1. Run the following command to set the **AZURE_ENV_DEPLOY_APP** environment variable to **true** before deployment.
+
+    ```
+    azd env set AZURE_ENV_DEPLOY_APP true 
+    ```
+
+    ![](./media/image76.png)
+
+2. Run azd up - This will provision Azure resources
+
+    ```
+    azd up 
+    ```
+
+    ![](./media/image77.png)
+
+3. Once the deployment has completed successfully, copy the Web app URL
+
+    ![](./media/image78.png)
+
+4. Run the following command to set up app permissions
+
+    ```
+    python scripts/00_build_solution.py --from 09
+    ```
+
+    ![](./media/image79.png)
+
+5. Press Enter to start configuration
+
+    ![](./media/image80.png)
+
+    ![](./media/image81.png)
+
+6. Click on the app URL and open it.
+
+    ![](./media/image82.png)
+
+    ![](./media/image83.png)
+
+    ![](./media/image84.png)
+
+7. **Sample Questions**
+
+    - To help you get started, here are some **Sample Questions** you can ask in the app:
+
+    - For Retail sales analysis use case:
+
+        ```
+        what is the average score from inspections
+        ```
+
+        ![](./media/image86.png)
+
+        ```
+        Do any inspections viloate quality control standards in our insecption Procedures?
+        ```
+
+        ![](./media/image88.png)
+
+## Task 8: Verify Azure Resources and Review Fabric Lakehouse Data 
+
+In this task, you will verify the deployed Azure resources and review the Fabric Lakehouse data.
+
+1. In the azure portal Select **Resource groups**
+
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/image89.png)
+
+3. Click on the **Resource group** **lab-vm**.
+
+    ![A screenshot of a computer AI-generated content may be incorrect.](./media/lab-vm-new.png)
+
+4. Make sure the below resource got deployed successfully
+
+    - Foundry
+
+    - Foundry project
+
+    - Application Insights
+
+    - Search service
+
+    - Azure Storage account
+
+    - App Service
+
+    - Azure Cosmos DB account
+
+        ![](./media/image91.png)
+
+## Task 9: Consume Fabric data agent from Microsoft Foundry Services
+
+In this task, you will consume the Fabric Data Agent from Microsoft Foundry Services and interact with it programmatically.
+
+1. Select **Foundry** resource.
+
+    ![](./media/image92.png)
+
+2. On the Overview pane, click on **Go to Foundry portal**. This will navigate you to the Microsoft Foundry portal.
+
+    ![](./media/image93.png)
+
+    ![](./media/image94.png)
+
+3. Once navigated to Foundry Portal, select **Agents (1)** from the left menu
+you will already see an agent **pre created**. If not created, then please click on the **+ New agent (2)** option to get it created.
+
+    ![](./media/image96.png)
+
+3. Select the newly created **agent (1)**, and a configuration pane will be opened on the right. Enter the agent name as  **Fabric Agent (2)** 
+
+    ![](./media/image97.png)
+
+4. In the same agent configuration pane, scroll down and click on **+Add** for **Knowledge** parameter.
+
+    ![](./media/image98.png)
+
+5. In the **Add knowledge** pane, select **Microsoft Fabric** 
+
+    ![](./media/image99.png)
+
+6. Click on **+ Create connection**
+
+    ![](./media/image100.png)
+
+7. Enter the custom keys, such as the **Workspace ID** and **AISkills ID**, that you saved in **Task 7\Step 6** **(1)**.Provide the connection name as **Fabric-aiskills (2)**, and click **Connect (3)**
+
+    ![](./media/image101.png)
+
+8. Enter Instructions
+
+    ```
+    You are a data assistant that analyzes inspection data stored in Microsoft Fabric.
+
+    Use the Fabric Lakehouse dataset to answer questions about inspection results and scores. The dataset includes the following columns:
+    - inspection_id: Unique identifier for each inspection
+    - ticket_id: Identifier associated with the inspection ticket
+    - result: Inspection outcome (Pass or Fail)
+    - score: Numeric score assigned to the inspection
+
+    You can analyze and summarize the data to provide insights such as:
+    - Total number of inspections
+    - Number of passed and failed inspections
+    - Average, highest, and lowest inspection scores
+    - Distribution of inspection results
+    - Score trends across inspections or tickets
+
+    When responding:
+    - Use the Fabric data source to retrieve accurate information.
+    - Provide clear summaries and insights based on the inspection results.
+    - When appropriate, suggest visualizations such as bar charts or pie charts to show pass vs fail distribution or score comparisons.
+    - Ensure answers are concise, accurate, and based only on the available dataset.
+    ```
+
+    ![](./media/image102.png)
+
+9. Select, **Agents** from left menu, and then choose the **Fabric Agent** agent and click on **Try in playground**.
+
+    ![](./media/image103.png)
+
+10. A chat panel will open where you can enter your prompts. The agent will now respond using the documents and datasets you've connected.
+
+    - Sample prompts -
+
+        ```
+        What constitutes a failed inspection? 
+        ```
+
+        ![](./media/image104.png)
+
+        ![](./media/image105.png)
+
+        ```
+        What is the total number of tickets in the system?
+        ```
+
+        ![](./media/image106.png)
+
+        ![](./media/image107.png)
+
+        ```
+        Do any inspections violate quality control standards in our
+        Inspection Procedures? 
+        ```
+
+        ![](./media/image108.png)
+
+        ![](./media/image109.png)
+
+
+## Summary
+
+This use case demonstrates how organizations can build **intelligent,
+agent-driven data applications** by integrating **Microsoft Fabric**
+with **Microsoft Foundry**. The solution establishes a **unified data
+foundation** where enterprise data stored in Fabric Lakehouse and
+Warehouse can be accessed and analyzed through AI-powered agents.
+
+By connecting a **Fabric Data Agent** to Foundry, users can interact
+with enterprise datasets using **natural language queries** instead of
+writing complex SQL or manually analyzing multiple data sources. The
+AI agent retrieves relevant data, performs analysis, and generates
+insights such as averages, trends, summaries, and grouped results.
+
+The solution also provisions supporting Azure services, including AI
+services, search, storage, and web applications, enabling a complete
+**end-to-end agentic application architecture**. This allows
+organizations to combine **structured enterprise data with AI
+capabilities** to deliver conversational analytics and automated
+insights.
+
+Overall, the use case highlights how **agentic AI applications** built
+on a unified data platform can simplify data access, accelerate
+analytics, and support faster, data-driven decision-making for both
+technical and non-technical users.
+
+### You have successfully completed the lab. Click on Next >> to proceed with the next lab.
+
+![Start Your Azure Journey](../masterdoc/media/next.jpg)
